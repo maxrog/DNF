@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Strava</key>
+	<dict>
+		<key>StravaBaseUrl</key>
+		<string>https://www.strava.com/api/v3</string>
+		<key>StravaAPIKey</key>
+		<string>8a6f017d7dfab9b1f3f08970d882788126d3e44c</string>
+	</dict>
+</dict>
+</plist>

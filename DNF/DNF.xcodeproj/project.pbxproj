@@ -11,7 +11,9 @@
 		AF717BDA2851759F0011D0EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF717BD92851759F0011D0EE /* ContentView.swift */; };
 		AF717BDC2851759F0011D0EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF717BDB2851759F0011D0EE /* Assets.xcassets */; };
 		AF717BDF2851759F0011D0EE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF717BDE2851759F0011D0EE /* Preview Assets.xcassets */; };
-		AF717BE928517B450011D0EE /* APIConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF717BE828517B450011D0EE /* APIConfiguration.plist */; };
+		AF717BE928517B450011D0EE /* NetworkConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF717BE828517B450011D0EE /* NetworkConfiguration.plist */; };
+		AF84673F28529C33009FAD23 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF84673E28529C33009FAD23 /* FileManager.swift */; };
+		AF9789BC28520F98003BD82F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9789BB28520F98003BD82F /* Endpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,7 +22,9 @@
 		AF717BD92851759F0011D0EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AF717BDB2851759F0011D0EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF717BDE2851759F0011D0EE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AF717BE828517B450011D0EE /* APIConfiguration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIConfiguration.plist; sourceTree = "<group>"; };
+		AF717BE828517B450011D0EE /* NetworkConfiguration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NetworkConfiguration.plist; sourceTree = "<group>"; };
+		AF84673E28529C33009FAD23 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		AF9789BB28520F98003BD82F /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,10 +57,11 @@
 		AF717BD62851759F0011D0EE /* DNF */ = {
 			isa = PBXGroup;
 			children = (
-				AF717BE528517A8E0011D0EE /* App Lifecycle */,
 				AF717BD72851759F0011D0EE /* DNFApp.swift */,
 				AF717BD92851759F0011D0EE /* ContentView.swift */,
-				AF717BDB2851759F0011D0EE /* Assets.xcassets */,
+				AF84673D28529C23009FAD23 /* Utilities */,
+				AF9789B928520BFC003BD82F /* Network */,
+				AF717BE528517A8E0011D0EE /* Resources */,
 				AF717BDD2851759F0011D0EE /* Preview Content */,
 			);
 			path = DNF;
@@ -70,12 +75,37 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		AF717BE528517A8E0011D0EE /* App Lifecycle */ = {
+		AF717BE528517A8E0011D0EE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AF717BE828517B450011D0EE /* APIConfiguration.plist */,
+				AF717BE828517B450011D0EE /* NetworkConfiguration.plist */,
+				AF717BDB2851759F0011D0EE /* Assets.xcassets */,
 			);
-			path = "App Lifecycle";
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AF84673D28529C23009FAD23 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				AF84673E28529C33009FAD23 /* FileManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		AF9789B928520BFC003BD82F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				AF9789BA28520F4A003BD82F /* Base */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		AF9789BA28520F4A003BD82F /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				AF9789BB28520F98003BD82F /* Endpoint.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,7 +166,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF717BE928517B450011D0EE /* APIConfiguration.plist in Resources */,
+				AF717BE928517B450011D0EE /* NetworkConfiguration.plist in Resources */,
 				AF717BDF2851759F0011D0EE /* Preview Assets.xcassets in Resources */,
 				AF717BDC2851759F0011D0EE /* Assets.xcassets in Resources */,
 			);
@@ -150,7 +180,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF717BDA2851759F0011D0EE /* ContentView.swift in Sources */,
+				AF9789BC28520F98003BD82F /* Endpoint.swift in Sources */,
 				AF717BD82851759F0011D0EE /* DNFApp.swift in Sources */,
+				AF84673F28529C33009FAD23 /* FileManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
