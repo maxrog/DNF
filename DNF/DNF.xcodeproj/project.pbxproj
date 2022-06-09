@@ -11,6 +11,7 @@
 		AF717BDA2851759F0011D0EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF717BD92851759F0011D0EE /* ContentView.swift */; };
 		AF717BDC2851759F0011D0EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF717BDB2851759F0011D0EE /* Assets.xcassets */; };
 		AF717BDF2851759F0011D0EE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF717BDE2851759F0011D0EE /* Preview Assets.xcassets */; };
+		AF717BE928517B450011D0EE /* APIConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF717BE828517B450011D0EE /* APIConfiguration.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		AF717BD92851759F0011D0EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AF717BDB2851759F0011D0EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF717BDE2851759F0011D0EE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AF717BE828517B450011D0EE /* APIConfiguration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIConfiguration.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		AF717BD62851759F0011D0EE /* DNF */ = {
 			isa = PBXGroup;
 			children = (
+				AF717BE528517A8E0011D0EE /* App Lifecycle */,
 				AF717BD72851759F0011D0EE /* DNFApp.swift */,
 				AF717BD92851759F0011D0EE /* ContentView.swift */,
 				AF717BDB2851759F0011D0EE /* Assets.xcassets */,
@@ -65,6 +68,14 @@
 				AF717BDE2851759F0011D0EE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AF717BE528517A8E0011D0EE /* App Lifecycle */ = {
+			isa = PBXGroup;
+			children = (
+				AF717BE828517B450011D0EE /* APIConfiguration.plist */,
+			);
+			path = "App Lifecycle";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +136,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF717BE928517B450011D0EE /* APIConfiguration.plist in Resources */,
 				AF717BDF2851759F0011D0EE /* Preview Assets.xcassets in Resources */,
 				AF717BDC2851759F0011D0EE /* Assets.xcassets in Resources */,
 			);
