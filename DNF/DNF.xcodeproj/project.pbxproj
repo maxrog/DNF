@@ -24,6 +24,7 @@
 		AF717BDE2851759F0011D0EE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AF717BE828517B450011D0EE /* NetworkConfiguration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NetworkConfiguration.plist; sourceTree = "<group>"; };
 		AF84673E28529C33009FAD23 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		AF8467472852B1FC009FAD23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		AF9789BB28520F98003BD82F /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,6 +58,7 @@
 		AF717BD62851759F0011D0EE /* DNF */ = {
 			isa = PBXGroup;
 			children = (
+				AF8467472852B1FC009FAD23 /* Info.plist */,
 				AF717BD72851759F0011D0EE /* DNFApp.swift */,
 				AF717BD92851759F0011D0EE /* ContentView.swift */,
 				AF84673D28529C23009FAD23 /* Utilities */,
@@ -313,6 +315,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"DNF/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DNF/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -323,7 +326,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = rogers.max.DNF;
+				PRODUCT_BUNDLE_IDENTIFIER = rogers.max.DNF.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -341,6 +344,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"DNF/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DNF/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -351,7 +355,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = rogers.max.DNF;
+				PRODUCT_BUNDLE_IDENTIFIER = rogers.max.DNF.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
