@@ -13,6 +13,7 @@
 		AF717BDF2851759F0011D0EE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF717BDE2851759F0011D0EE /* Preview Assets.xcassets */; };
 		AF717BE928517B450011D0EE /* NetworkConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF717BE828517B450011D0EE /* NetworkConfiguration.plist */; };
 		AF84673F28529C33009FAD23 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF84673E28529C33009FAD23 /* FileManager.swift */; };
+		AF8467422852A83D009FAD23 /* DNFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8467412852A83D009FAD23 /* DNFButton.swift */; };
 		AF9789BC28520F98003BD82F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9789BB28520F98003BD82F /* Endpoint.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +25,7 @@
 		AF717BDE2851759F0011D0EE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AF717BE828517B450011D0EE /* NetworkConfiguration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NetworkConfiguration.plist; sourceTree = "<group>"; };
 		AF84673E28529C33009FAD23 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		AF8467412852A83D009FAD23 /* DNFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNFButton.swift; sourceTree = "<group>"; };
 		AF8467472852B1FC009FAD23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		AF9789BB28520F98003BD82F /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,6 +63,8 @@
 				AF8467472852B1FC009FAD23 /* Info.plist */,
 				AF717BD72851759F0011D0EE /* DNFApp.swift */,
 				AF717BD92851759F0011D0EE /* ContentView.swift */,
+				AF8467462852AFC4009FAD23 /* Screens */,
+				AF8467402852A81D009FAD23 /* DNF Views */,
 				AF84673D28529C23009FAD23 /* Utilities */,
 				AF9789B928520BFC003BD82F /* Network */,
 				AF717BE528517A8E0011D0EE /* Resources */,
@@ -92,6 +96,21 @@
 				AF84673E28529C33009FAD23 /* FileManager.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		AF8467402852A81D009FAD23 /* DNF Views */ = {
+			isa = PBXGroup;
+			children = (
+				AF8467412852A83D009FAD23 /* DNFButton.swift */,
+			);
+			path = "DNF Views";
+			sourceTree = "<group>";
+		};
+		AF8467462852AFC4009FAD23 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		AF9789B928520BFC003BD82F /* Network */ = {
@@ -184,6 +203,7 @@
 				AF717BDA2851759F0011D0EE /* ContentView.swift in Sources */,
 				AF9789BC28520F98003BD82F /* Endpoint.swift in Sources */,
 				AF717BD82851759F0011D0EE /* DNFApp.swift in Sources */,
+				AF8467422852A83D009FAD23 /* DNFButton.swift in Sources */,
 				AF84673F28529C33009FAD23 /* FileManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
