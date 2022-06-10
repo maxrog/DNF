@@ -18,7 +18,7 @@ struct DNFApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            StravaAuthView()
                 .onOpenURL { url in
                     /// handle deeplink url
                 }
