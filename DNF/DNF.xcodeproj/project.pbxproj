@@ -31,7 +31,7 @@
 		AF717BE828517B450011D0EE /* NetworkConfiguration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NetworkConfiguration.plist; sourceTree = "<group>"; };
 		AF84673E28529C33009FAD23 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		AF8467412852A83D009FAD23 /* DNFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNFButton.swift; sourceTree = "<group>"; };
-		AF8467472852B1FC009FAD23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AF8467472852B1FC009FAD23 /* DNF-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DNF-Info.plist"; sourceTree = "<group>"; };
 		AF84674A2852BC2E009FAD23 /* StravaAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaAuthViewModel.swift; sourceTree = "<group>"; };
 		AF84674C2852BE54009FAD23 /* StravaAuthEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaAuthEndpoint.swift; sourceTree = "<group>"; };
 		AF84674F2852CA4F009FAD23 /* DNFLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNFLogger.swift; sourceTree = "<group>"; };
@@ -70,7 +70,6 @@
 		AF717BD62851759F0011D0EE /* DNF */ = {
 			isa = PBXGroup;
 			children = (
-				AF8467472852B1FC009FAD23 /* Info.plist */,
 				AF717BD72851759F0011D0EE /* DNFApp.swift */,
 				AF8467462852AFC4009FAD23 /* Screens */,
 				AF8467402852A81D009FAD23 /* DNF Views */,
@@ -94,6 +93,7 @@
 		AF717BE528517A8E0011D0EE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AF8467472852B1FC009FAD23 /* DNF-Info.plist */,
 				AF717BE828517B450011D0EE /* NetworkConfiguration.plist */,
 				AF717BDB2851759F0011D0EE /* Assets.xcassets */,
 			);
@@ -380,7 +380,8 @@
 				DEVELOPMENT_TEAM = 3JSTV9NEF8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DNF/Info.plist;
+				INFOPLIST_FILE = "DNF/Resources/DNF-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = DNF;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -410,7 +411,8 @@
 				DEVELOPMENT_TEAM = 3JSTV9NEF8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DNF/Info.plist;
+				INFOPLIST_FILE = "DNF/Resources/DNF-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = DNF;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
