@@ -17,7 +17,7 @@ class StravaAuthViewModel: NSObject, ObservableObject, ASWebAuthenticationPresen
     
     func presentAuth() {
         // Check if can open the app first, otherwise use OAuth
-        var authEndpoint = StravaAuthEndpoint(type: .app)
+        var authEndpoint = StravaAuthEndpoint(type: .app, appState: "Onboard")
         guard let appUrl = authEndpoint.urlRequest?.url else { return }
         if UIApplication.shared.canOpenURL(appUrl) {
             UIApplication.shared.open(appUrl)
