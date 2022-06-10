@@ -13,7 +13,7 @@ struct StravaAuthEndpoint: Endpoint {
     let appState: String
     
     var baseURL: String {
-        return "https://www.strava.com/" 
+        return type == .web ? "https://www.strava.com/" : "strava://"
     }
     var path: String {
         "oauth/mobile/authorize"
