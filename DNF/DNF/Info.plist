@@ -8,10 +8,20 @@
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>CFBundleURLName</key>
-			<string>DNF</string>
+			<string>rogers.max.DNF.app</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>rogers.max.DNF.app</string>
+				<string>DNF</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>CFBundleURLName</key>
+			<string>Strava Auth</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>localhost</string>
 			</array>
 		</dict>
 	</array>
