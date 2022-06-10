@@ -21,7 +21,7 @@
 			<string>Strava Auth</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>localhost</string>
+				<string>myapp</string>
 			</array>
 		</dict>
 	</array>
