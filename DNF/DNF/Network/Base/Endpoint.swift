@@ -41,8 +41,7 @@ protocol Endpoint {
 extension Endpoint {
     
     var baseURL: String {
-        let plist = FileManager.plist(named: "NetworkConfiguration", childName: "Strava")
-        return plist["StravaBaseUrl"] as? String ?? ""
+        return AuthenticationManager.shared.stravaBaseUrl
     }
     
     var methodType: RequestMethod {

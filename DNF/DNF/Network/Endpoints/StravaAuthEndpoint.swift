@@ -10,23 +10,23 @@ import Foundation
 struct StravaAuthEndpoint: Endpoint {
     
     var type: StravaAuthType
+    let appState: String
     
     var baseURL: String {
-        return type == .web ? "https://www.strava.com/" : "strava://"
+        return "https://www.strava.com/" 
     }
     var path: String {
         "oauth/mobile/authorize"
     }
     var queryParams: [String : String]? {
-        let stravaPlist = FileManager.plist(named: "NetworkConfiguration", childName: "Strava")
-        
-        guard let clientId = stravaPlist["StravaClientId"] as? String,
-        let redirect = stravaPlist["StravaRedirectURI"] as? String else { return nil }
+        let clientId = AuthenticationManager.shared.stravaClientId
+        let redirect = AuthenticationManager.shared.stravaRedirect
         
         return ["client_id" : clientId,
                 "redirect_uri" : redirect,
                 "response_type" : "code",
-                "scope" : "activity:read_all"]
+                "scope" : "activity:read_all",
+                "state" : appState]
     }
     
     var headers: [String : String]?
