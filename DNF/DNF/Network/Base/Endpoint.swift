@@ -20,15 +20,24 @@ protocol Endpoint {
     var path: String { get }
     
     /// The http method type. Defaults to GET
-    var method: RequestMethod { get }
+    var methodType: RequestMethod { get }
+    
+    /// Optional query params to supply
+    var queryParams: [String: String]? { get }
     
     /// Optional headers to supply
-    var header: [String: String]? { get }
+    var headers: [String: String]? { get }
     
     /// Optional body to supply
     var body: [String: String]? { get }
+    
+    /// The final computed url
+    var urlRequest: URLRequest? { get }
 }
 
+/*
+ Default implementation
+ */
 extension Endpoint {
     
     var baseURL: String {
@@ -36,8 +45,44 @@ extension Endpoint {
         return plist["StravaBaseUrl"] as? String ?? ""
     }
     
-    var method: RequestMethod {
+    var methodType: RequestMethod {
         return .get
+    }
+    
+    // Everything combined
+    var urlRequest: URLRequest? {
+        
+        let urlString = baseURL + path
+        
+        guard var urlComponents = URLComponents(string: urlString) else {
+            let errorMessage = "Error building url components from \(urlString)"
+            DNFLogger.log(.error, errorMessage, sender: String(describing: self))
+            return nil
+        }
+        
+        if let queryParams {
+            urlComponents.queryItems = queryParams.compactMap({ URLQueryItem(name: $0.key, value: $0.value) })
+        }
+        
+        guard let url = urlComponents.url else {
+            let errorMessage = "Error accessing url from \(urlComponents.string ?? "N/A")"
+            DNFLogger.log(.error, errorMessage, sender: String(describing: self))
+            return nil
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = methodType.rawValue
+        
+        if let headers {
+            request.allHTTPHeaderFields = headers
+        }
+        
+        if let body,
+           let jsonBody = try? JSONSerialization.data(withJSONObject: body) {
+            request.httpBody = jsonBody
+        }
+        
+        return request
     }
     
 }
