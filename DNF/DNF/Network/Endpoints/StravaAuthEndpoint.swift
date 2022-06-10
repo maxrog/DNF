@@ -9,7 +9,10 @@ import Foundation
 
 struct StravaAuthEndpoint: Endpoint {
     
+    // type of url to build (if user has Strava app downloaded)
     var type: StravaAuthType
+    
+    // state is passed along for context restoration after redirect
     let appState: String
     
     var baseURL: String {
