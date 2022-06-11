@@ -14,6 +14,7 @@ import Foundation
 class AuthenticationManager {
     
     static let shared = AuthenticationManager()
+    static let authRedirectUrlScheme = "myapp"
     
     // Strava access
     var stravaBaseUrl: String
@@ -29,9 +30,21 @@ class AuthenticationManager {
         self.stravaRedirect = stravaPlist["StravaRedirectURI"] as? String ?? ""
     }
     
-    func handleStravaOAuthCallback(_ url: URL?) {
-        guard let url = url else { return }
-        let components = url.pathComponents
-        print(components)
+    func handleStravaOAuthCallback(_ url: URL) {
+        guard let code = url["code"] else { return }
+        if let state = url["state"] {
+            // state describing where authentication happened
+        }
+        Task {
+            do {
+                let tokenData = try await StravaNetworkDispatch.fetchAccessToken(with: code)
+                print(tokenData.accessToken)
+                // TODO save tokens in keychain/ setup refresh 
+            } catch {
+                // TODO display alert
+                let errorMessage = error.localizedDescription
+                DNFLogger.log(.error, errorMessage, sender: String(describing: self))
+            }
+        }
     }
 }

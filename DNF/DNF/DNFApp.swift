@@ -20,7 +20,13 @@ struct DNFApp: App {
         WindowGroup {
             StravaAuthView()
                 .onOpenURL { url in
-                    /// handle deeplink url
+                    guard let scheme = url.scheme else { return }
+                    switch scheme {
+                    case AuthenticationManager.authRedirectUrlScheme:
+                        AuthenticationManager.shared.handleStravaOAuthCallback(url)
+                    default:
+                        break
+                    }
                 }
         }
         .onChange(of: scenePhase) { newScenePhase in

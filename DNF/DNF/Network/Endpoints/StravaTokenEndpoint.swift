@@ -9,25 +9,38 @@ import Foundation
 
 struct StravaTokenEndpoint: Endpoint {
     
-    let code: String
+    let redirectCode: String?
+    let tokenType: StravaTokenRequestType
     
-    var baseURL: String {
-        return "https://www.strava.com/"
+    var methodType: RequestMethod {
+        .post
     }
     var path: String {
-        "api/v3/oauth/token"
+        "/oauth/token"
     }
     var queryParams: [String : String]? {
         let clientId = AuthenticationManager.shared.stravaClientId
         let key = AuthenticationManager.shared.stravaAPIKey
         
-        return ["client_id" : clientId,
-                "client_secret" : key,
-                "code" : code,
-                "grant_type" : "authorization_code"]
+        switch tokenType {
+        case .access:
+            return ["client_id" : clientId,
+                    "client_secret" : key,
+                    "code" : redirectCode ?? "",
+                    "grant_type" : "authorization_code"]
+        case .refresh:
+            return ["client_id" : clientId,
+                    "client_secret" : key,
+                    "refresh_token" : "blah",
+                    "grant_type" : "refresh_token"]
+        }
     }
     
     var headers: [String : String]?
     var body: [String : String]?
     
+}
+
+enum StravaTokenRequestType {
+    case access, refresh
 }
