@@ -48,6 +48,10 @@ extension Endpoint {
         return .get
     }
     
+    var url: URL? {
+        return urlRequest?.url
+    }
+    
     // Everything combined
     var urlRequest: URLRequest? {
         
