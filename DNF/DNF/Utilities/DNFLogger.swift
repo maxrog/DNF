@@ -9,7 +9,6 @@ import UIKit
 
 struct DNFLogger {
     
-    
     static func log(_ logType: DNFLogType, _ message: String, sender: String) {
         switch logType {
         case .error:
