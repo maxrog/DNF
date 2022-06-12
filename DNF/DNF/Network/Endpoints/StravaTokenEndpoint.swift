@@ -12,6 +12,11 @@ struct StravaTokenEndpoint: Endpoint {
     let redirectCode: String?
     let tokenType: StravaTokenRequestType
     
+    init(redirectCode: String? = nil, tokenType: StravaTokenRequestType) {
+        self.redirectCode = redirectCode
+        self.tokenType = tokenType
+    }
+    
     var methodType: RequestMethod {
         .post
     }
@@ -19,8 +24,10 @@ struct StravaTokenEndpoint: Endpoint {
         "/oauth/token"
     }
     var queryParams: [String : String]? {
-        let clientId = AuthenticationManager.shared.stravaClientId
-        let key = AuthenticationManager.shared.stravaAPIKey
+        let clientId = StravaAPIConfiguration.shared.stravaClientId
+        let key = StravaAPIConfiguration.shared.stravaAPIKey
+        
+        let token = StravaAPIConfiguration.shared.stravaTokenData?.refreshToken ?? ""
         
         switch tokenType {
         case .access:
@@ -31,7 +38,7 @@ struct StravaTokenEndpoint: Endpoint {
         case .refresh:
             return ["client_id" : clientId,
                     "client_secret" : key,
-                    "refresh_token" : "blah",
+                    "refresh_token" : token,
                     "grant_type" : "refresh_token"]
         }
     }
