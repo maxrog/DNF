@@ -22,8 +22,10 @@ struct DNFApp: App {
                 .onOpenURL { url in
                     guard let scheme = url.scheme else { return }
                     switch scheme {
-                    case AuthenticationManager.authRedirectUrlScheme:
-                        AuthenticationManager.shared.handleStravaOAuthCallback(url)
+                    case StravaAPIConfiguration.authRedirectUrlScheme:
+                        Task {
+                            await AuthManager.shared.handleStravaOAuthCallback(url)
+                        }
                     default:
                         break
                     }

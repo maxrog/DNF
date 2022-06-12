@@ -13,8 +13,11 @@ import Foundation
  Generic functions that work with any Codable conforming object
  */
 
-enum KeychainService: String {
+enum KeychainAccount: String {
     case strava
+}
+enum KeychainService: String {
+    case standard
 }
 
 class KeychainManager {
@@ -22,12 +25,12 @@ class KeychainManager {
     static let shared = KeychainManager()
     private init() {}
     
-    func save<T>(_ item: T, service: KeychainService, account: String) where T : Codable {
+    func save<T>(_ item: T, service: KeychainService = .standard, account: KeychainAccount) where T : Codable {
         
         do {
             // Encode as JSON data and save in keychain
             let data = try JSONEncoder().encode(item)
-            save(data, service: service, account: account)
+            save(data, service: .standard, account: account)
             
         } catch {
             let errorMessage = "Failed to encode item for keycahin: \(error.localizedDescription)"
@@ -35,7 +38,7 @@ class KeychainManager {
         }
     }
     
-    func fetch<T>(service: KeychainService, account: String, type: T.Type) -> T? where T : Codable {
+    func fetch<T>(service: KeychainService = .standard, account: KeychainAccount, type: T.Type) -> T? where T : Codable {
         
         // Read item data from keychain
         guard let data = fetch(service: service, account: account) else {
@@ -53,11 +56,11 @@ class KeychainManager {
         }
     }
     
-    func delete(service: KeychainService, account: String) {
+    func delete(service: KeychainService = .standard, account: KeychainAccount) {
         
         let query = [
             kSecAttrService: service.rawValue,
-            kSecAttrAccount: account,
+            kSecAttrAccount: account.rawValue,
             kSecClass: kSecClassGenericPassword,
             ] as CFDictionary
         
@@ -69,14 +72,14 @@ class KeychainManager {
 
 extension KeychainManager {
     
-    private func save(_ data: Data, service: KeychainService, account: String) {
+    private func save(_ data: Data, service: KeychainService, account: KeychainAccount) {
         
         // Create query
         let query = [
             kSecValueData: data,
             kSecClass: kSecClassGenericPassword,
-            kSecAttrService: service,
-            kSecAttrAccount: account,
+            kSecAttrService: service.rawValue,
+            kSecAttrAccount: account.rawValue,
         ] as CFDictionary
         
         // Add data in query to keychain
@@ -86,7 +89,7 @@ extension KeychainManager {
             // Item already exist, thus update it.
             let query = [
                 kSecAttrService: service.rawValue,
-                kSecAttrAccount: account,
+                kSecAttrAccount: account.rawValue,
                 kSecClass: kSecClassGenericPassword,
             ] as CFDictionary
 
@@ -102,11 +105,11 @@ extension KeychainManager {
         }
     }
     
-    private func fetch(service: KeychainService, account: String) -> Data? {
+    private func fetch(service: KeychainService, account: KeychainAccount) -> Data? {
         
         let query = [
             kSecAttrService: service.rawValue,
-            kSecAttrAccount: account,
+            kSecAttrAccount: account.rawValue,
             kSecClass: kSecClassGenericPassword,
             kSecReturnData: true
         ] as CFDictionary
