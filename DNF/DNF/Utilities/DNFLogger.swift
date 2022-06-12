@@ -14,7 +14,7 @@ struct DNFLogger {
         case .error:
             debugPrint("📕 Error: \(message) \(sender)")
         case .fatal:
-            fatalError("📕 FATAL: \(message) \(sender)")
+            assertionFailure("📕 FATAL: \(message) \(sender)")
         case .warning:
             debugPrint("📙 Warning: \(message) \(sender)")
         case .success:
