@@ -33,8 +33,8 @@ class KeychainManager {
             save(data, service: .standard, account: account)
             
         } catch {
-            let errorMessage = "Failed to encode item for keycahin: \(error.localizedDescription)"
-            DNFLogger.log(.fatal, errorMessage, sender: String(describing: self))
+            let message = "Failed to encode item for keycahin: \(error.localizedDescription)"
+            DNFLogger.log(.fatal, message, sender: String(describing: self))
         }
     }
     
@@ -50,8 +50,8 @@ class KeychainManager {
             let item = try JSONDecoder().decode(type, from: data)
             return item
         } catch {
-            let errorMessage = "Failed to decode item for keycahin: \(error.localizedDescription)"
-            DNFLogger.log(.fatal, errorMessage, sender: String(describing: self))
+            let message = "Failed to decode item for keycahin: \(error.localizedDescription)"
+            DNFLogger.log(.fatal, message, sender: String(describing: self))
             return nil
         }
     }
@@ -100,8 +100,8 @@ extension KeychainManager {
         }
         
         if status != errSecSuccess {
-            let errorMessage = "Error: \(status)"
-            DNFLogger.log(.fatal, errorMessage, sender: String(describing: self))
+            let message = "Error: \(status)"
+            DNFLogger.log(.fatal, message, sender: String(describing: self))
         }
     }
     

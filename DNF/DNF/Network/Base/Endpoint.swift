@@ -41,7 +41,7 @@ protocol Endpoint {
 extension Endpoint {
     
     var baseURL: String {
-        return AuthenticationManager.shared.stravaBaseUrl
+        return StravaAPIConfiguration.shared.stravaBaseUrl
     }
     
     var methodType: RequestMethod {
@@ -58,8 +58,8 @@ extension Endpoint {
         let urlString = baseURL + path
         
         guard var urlComponents = URLComponents(string: urlString) else {
-            let errorMessage = "Error building url components from \(urlString)"
-            DNFLogger.log(.error, errorMessage, sender: String(describing: self))
+            let message = "Error building url components from \(urlString)"
+            DNFLogger.log(.error, message, sender: String(describing: self))
             return nil
         }
         
@@ -68,8 +68,8 @@ extension Endpoint {
         }
         
         guard let url = urlComponents.url else {
-            let errorMessage = "Error accessing url from \(urlComponents.string ?? "N/A")"
-            DNFLogger.log(.error, errorMessage, sender: String(describing: self))
+            let message = "Error accessing url from \(urlComponents.string ?? "N/A")"
+            DNFLogger.log(.error, message, sender: String(describing: self))
             return nil
         }
         

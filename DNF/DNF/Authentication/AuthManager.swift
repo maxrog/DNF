@@ -33,12 +33,10 @@ extension AuthManager {
             do {
                 let tokenData = try await StravaNetworkDispatch.fetchAccessTokens(with: code)
                 
-                print(tokenData.accessToken)
-                // TODO save tokens in keychain/ setup refresh
             } catch {
                 // TODO display alert
-                let errorMessage = error.localizedDescription
-                DNFLogger.log(.error, errorMessage, sender: String(describing: self))
+                let message = error.localizedDescription
+                DNFLogger.log(.error, message, sender: String(describing: self))
             }
         }
     }
