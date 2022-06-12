@@ -19,4 +19,10 @@ struct StravaTokenData: Codable {
         case refreshToken = "refresh_token"
         case accessToken = "access_token"
     }
+    
+    var isValid: Bool {
+        let currentDate = Date()
+        let expireDate = Date(timeIntervalSince1970: TimeInterval(expiresAt))
+        return currentDate < expireDate
+    }
 }
