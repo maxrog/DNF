@@ -1,5 +1,5 @@
 //
-//  StravaAuthView.swift
+//  StravaOAuthView.swift
 //  DNF
 //
 //  Created by Max Rogers on 6/8/22.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct StravaAuthView: View {
+struct StravaOAuthView: View {
     
-    @State var authViewModel = StravaAuthViewModel()
+    @State var authViewModel = StravaOAuthViewModel()
     
     var body: some View {
         Button {
@@ -21,8 +21,8 @@ struct StravaAuthView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct StravaOAuthView_Previews: PreviewProvider {
     static var previews: some View {
-        StravaAuthView()
+        StravaOAuthView()
     }
 }

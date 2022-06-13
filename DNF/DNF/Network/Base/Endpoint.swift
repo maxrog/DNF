@@ -92,7 +92,7 @@ extension Endpoint {
     }
     
     func authorizedRequest() async throws -> URLRequest? {
-        let token = try await AuthManager.shared.validToken()
+        let token = try await AuthTokenManager.shared.validToken()
         guard var request = urlRequest else {
             throw RequestError.missingToken
         }

@@ -8,12 +8,12 @@
 import Foundation
 
 /*
- Manager for maintaining auth state
+ Token Manager for maintaining auth tokens
  */
 
-actor AuthManager {
+actor AuthTokenManager {
     
-    static let shared = AuthManager()
+    static let shared = AuthTokenManager()
     private init() {}
     
     private var stravaRefreshTask: Task<StravaTokenData, Error>?
@@ -22,16 +22,14 @@ actor AuthManager {
 
 // MARK: Redirect on initial authentication
 
-extension AuthManager {
+extension AuthTokenManager {
     
-    func handleStravaOAuthCallback(_ url: URL) async throws {
-        guard let code = url["code"] else { return }
-        if let state = url["state"] {
-            // state describing where authentication happened
-        }
+    func handleStravaOAuthCallback(_ url: URL) async throws -> Bool {
+        guard let code = url["code"] else { return false }
         do {
             let tokenData = try await StravaNetworkDispatch.fetchAccessTokens(with: code)
             StravaAPIConfiguration.shared.stravaTokenData = tokenData
+            return true
         } catch {
             let message = error.localizedDescription
             DNFLogger.log(.error, message, sender: String(describing: self))
@@ -42,7 +40,7 @@ extension AuthManager {
 
 // MARK: Token Refresh Handling
 
-extension AuthManager {
+extension AuthTokenManager {
     
     func validToken() async throws -> StravaTokenData {
         // We have a refresh task in flight, so don't send duplicate request

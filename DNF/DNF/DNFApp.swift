@@ -11,6 +11,8 @@ import SwiftUI
 struct DNFApp: App {
     
     @Environment(\.scenePhase) var scenePhase
+
+    @StateObject var authStateViewModel = AuthStateViewModel()
     
     init() {
         /// perform any work necessary on app launch
@@ -18,14 +20,17 @@ struct DNFApp: App {
     
     var body: some Scene {
         WindowGroup {
-            StravaAuthView()
-                .onOpenURL { url in
+            NavigationView {
+                DNFAuthSwitchView()
+            }
+            .environmentObject(authStateViewModel)
+            .onOpenURL { url in
                     guard let scheme = url.scheme else { return }
                     switch scheme {
                     case StravaAPIConfiguration.authRedirectUrlScheme:
                         Task {
                             do {
-                                try await AuthManager.shared.handleStravaOAuthCallback(url)
+                                try await authStateViewModel.signIn(callbackUrl: url)
                             } catch {
                                 // TODO display user facing alert
                                 let message = error.localizedDescription
@@ -50,6 +55,23 @@ struct DNFApp: App {
             default:
                 break
             }
+        }
+    }
+}
+
+/*
+ View that handles which screen to show on launch
+ */
+
+struct DNFAuthSwitchView: View {
+    
+    @EnvironmentObject var authViewModel: AuthStateViewModel
+    
+    var body: some View {
+        if authViewModel.isLoggedIn {
+            ProfileView()
+        } else {
+            StravaOAuthView()
         }
     }
 }

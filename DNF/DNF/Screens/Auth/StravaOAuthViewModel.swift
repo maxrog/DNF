@@ -1,5 +1,5 @@
 //
-//  StravaAuthViewModel.swift
+//  StravaOAuthViewModel.swift
 //  DNF
 //
 //  Created by Max Rogers on 6/9/22.
@@ -8,7 +8,7 @@
 import Foundation
 import AuthenticationServices
 
-class StravaAuthViewModel: NSObject, ObservableObject, ASWebAuthenticationPresentationContextProviding {
+class StravaOAuthViewModel: NSObject, ObservableObject, ASWebAuthenticationPresentationContextProviding {
     
     // ASWebAuth Conformance. System will find best spot to present authentication
     func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
@@ -26,7 +26,7 @@ class StravaAuthViewModel: NSObject, ObservableObject, ASWebAuthenticationPresen
             authEndpoint.type = .web
             guard let url = authEndpoint.url else { return }
             
-            let authSession = ASWebAuthenticationSession(url: url, callbackURLScheme: "localhost") { url, error in
+            let authSession = ASWebAuthenticationSession(url: url, callbackURLScheme: StravaAPIConfiguration.authRedirectUrlScheme) { url, error in
                 guard error == nil else {
                     let message = "OAuth error receiving callback"
                     DNFLogger.log(.error, message, sender: String(describing: self))
