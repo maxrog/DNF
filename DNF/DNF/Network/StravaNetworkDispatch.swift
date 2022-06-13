@@ -60,5 +60,34 @@ extension StravaNetworkDispatch {
         
         return athleteInfo
     }
+   
+    static func fetchAthleteStats() async throws -> StravaAthleteStatsData {
+        let athleteEndpoint = StravaAthleteEndpoint(type: .stats)
+        
+        guard let urlRequest = try await athleteEndpoint.authorizedRequest() else {
+            throw RequestError.missingToken
+        }
+        
+        let (data, _) = try await URLSession.shared.data(for: urlRequest)
+        let athleteStats = try JSONDecoder().decode(StravaAthleteStatsData.self, from: data)
+        
+        return athleteStats
+    }
+    
+    // MARK: Activities
+    
+    static func fetchAthleteActivities() async throws -> StravaActivityData {
+        let athleteEndpoint = StravaActivityEndpoint(type: .list)
+        
+        guard let urlRequest = try await athleteEndpoint.authorizedRequest() else {
+            throw RequestError.missingToken
+        }
+        
+        let (data, _) = try await URLSession.shared.data(for: urlRequest)
+        let activities = try JSONDecoder().decode([StravaActivity].self, from: data)
+        let activityData = StravaActivityData(allActivities: activities)
+        
+        return activityData
+    }
     
 }
