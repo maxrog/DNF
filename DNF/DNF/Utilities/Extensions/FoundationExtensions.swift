@@ -24,13 +24,13 @@ extension Double {
     // MARK: Formatting
     
     /// Rounds the double to decimal places value
-       func rounded(toPlaces places:Int) -> Double {
-           let divisor = pow(10.0, Double(places))
-           return (self * divisor).rounded() / divisor
-       }
+    func rounded(toPlaces places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
+    }
     
     // MARK: Unit conversion
-    
+   
     /// Converts a value in meters to miles
     var metersToMilesValue: Double {
         return (self / 1609.34).rounded(toPlaces: 2)
@@ -61,6 +61,7 @@ extension Int {
 
 extension String {
     
+    /// Converts an ISO8601 string to a date
     var isoDate: Date {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
