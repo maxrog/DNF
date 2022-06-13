@@ -8,7 +8,6 @@
 import Foundation
 import AuthenticationServices
 
-@MainActor
 class StravaOAuthViewModel: NSObject, ObservableObject, ASWebAuthenticationPresentationContextProviding {
     
     // ASWebAuth Conformance. System will find best spot to present authentication
@@ -16,6 +15,7 @@ class StravaOAuthViewModel: NSObject, ObservableObject, ASWebAuthenticationPrese
         return ASPresentationAnchor()
     }
     
+    @MainActor
     func presentAuth() {
         // Check if can open the app first, otherwise use OAuth
         var authEndpoint = StravaAuthEndpoint(type: .app, appState: "Onboard")
