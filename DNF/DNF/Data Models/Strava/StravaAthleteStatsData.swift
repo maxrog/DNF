@@ -7,6 +7,7 @@
 
 import Foundation
 
+// TODO clean this up / documentation
 struct StravaAthleteStatsData: Codable {
     let recentRunTotals: StravaStatTotals
     let ytdRunTotals: StravaStatTotals

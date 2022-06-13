@@ -19,6 +19,7 @@ struct StravaActivityData {
     
 }
 
+// TODO clean this up / documentation
 struct StravaActivity: Codable {
     let id: Int
     let name: String
