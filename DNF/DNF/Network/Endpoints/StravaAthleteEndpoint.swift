@@ -16,10 +16,11 @@ struct StravaAthleteEndpoint: Endpoint {
         case .info:
             return "/athlete"
         case .stats:
-            return "/athletes/\(StravaAPIConfiguration.shared.stravaAthleteId)/stats"
+            return "/athlete/\(StravaAPIConfiguration.shared.athleteId)/stats"
         }
     }
-    var queryParams: [String : String]? 
+    
+    var queryParams: [String : String]?
     var headers: [String : String]?
     var body: [String : String]?
     
