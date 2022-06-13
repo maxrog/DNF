@@ -28,7 +28,7 @@ struct StravaNetworkDispatch {
         guard let urlRequest = tokenEndpoint.urlRequest else {
             throw RequestError.invalidURL
         }
-        guard StravaAPIConfiguration.shared.hasStravaTokens else {
+        guard StravaAPIConfiguration.shared.hasTokens else {
             throw RequestError.missingToken
         }
         

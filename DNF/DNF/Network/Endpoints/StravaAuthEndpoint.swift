@@ -22,8 +22,8 @@ struct StravaAuthEndpoint: Endpoint {
         "oauth/mobile/authorize"
     }
     var queryParams: [String : String]? {
-        let clientId = StravaAPIConfiguration.shared.stravaClientId
-        let redirect = StravaAPIConfiguration.shared.stravaRedirect
+        let clientId = StravaAPIConfiguration.shared.clientId
+        let redirect = StravaAPIConfiguration.shared.redirect
         
         return ["client_id" : clientId,
                 "redirect_uri" : redirect,

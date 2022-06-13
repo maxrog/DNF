@@ -28,7 +28,7 @@ extension AuthTokenManager {
         guard let code = url["code"] else { return false }
         do {
             let tokenData = try await StravaNetworkDispatch.fetchAccessTokens(with: code)
-            StravaAPIConfiguration.shared.stravaTokenData = tokenData
+            StravaAPIConfiguration.shared.tokenData = tokenData
             return true
         } catch {
             let message = error.localizedDescription
@@ -49,7 +49,7 @@ extension AuthTokenManager {
         }
         
         // We aren't waiting for a refresh, and we don't have anything stored - user needs to authenticate
-        guard let tokenData = StravaAPIConfiguration.shared.stravaTokenData else {
+        guard let tokenData = StravaAPIConfiguration.shared.tokenData else {
             throw RequestError.missingToken
         }
         
@@ -80,7 +80,7 @@ extension AuthTokenManager {
             defer { stravaRefreshTask = nil }
             
             let newTokenData = try await StravaNetworkDispatch.refreshToken()
-            StravaAPIConfiguration.shared.stravaTokenData = newTokenData
+            StravaAPIConfiguration.shared.tokenData = newTokenData
             return try await StravaNetworkDispatch.refreshToken()
         }
         self.stravaRefreshTask = task

@@ -24,10 +24,10 @@ struct StravaTokenEndpoint: Endpoint {
         "/oauth/token"
     }
     var queryParams: [String : String]? {
-        let clientId = StravaAPIConfiguration.shared.stravaClientId
-        let key = StravaAPIConfiguration.shared.stravaAPIKey
+        let clientId = StravaAPIConfiguration.shared.clientId
+        let key = StravaAPIConfiguration.shared.APIKey
         
-        let token = StravaAPIConfiguration.shared.stravaTokenData?.refreshToken ?? ""
+        let token = StravaAPIConfiguration.shared.tokenData?.refreshToken ?? ""
         
         switch tokenType {
         case .access:

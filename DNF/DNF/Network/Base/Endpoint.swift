@@ -44,7 +44,7 @@ protocol Endpoint {
 extension Endpoint {
     
     var baseURL: String {
-        return StravaAPIConfiguration.shared.stravaBaseUrl
+        return StravaAPIConfiguration.shared.baseUrl
     }
     
     var methodType: RequestMethod {

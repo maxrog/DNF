@@ -10,7 +10,7 @@ import Foundation
 @MainActor
 class AuthStateViewModel: ObservableObject {
     
-    @Published var isLoggedIn = StravaAPIConfiguration.shared.stravaTokenData != nil
+    @Published var isLoggedIn = StravaAPIConfiguration.shared.tokenData != nil
     
     func signIn(callbackUrl: URL) async throws {
         do {
@@ -21,7 +21,7 @@ class AuthStateViewModel: ObservableObject {
     }
     
     func signOut() {
-        StravaAPIConfiguration.shared.stravaTokenData = nil
+        StravaAPIConfiguration.shared.tokenData = nil
         KeychainManager.shared.delete(account: .strava)
         isLoggedIn = false
     }
