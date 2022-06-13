@@ -13,7 +13,7 @@ struct DNFApp: App {
     @Environment(\.scenePhase) var scenePhase
     
     init() {
-        /// perform and work necessary on app launch
+        /// perform any work necessary on app launch
     }
     
     var body: some Scene {
@@ -24,7 +24,12 @@ struct DNFApp: App {
                     switch scheme {
                     case StravaAPIConfiguration.authRedirectUrlScheme:
                         Task {
-                            await AuthManager.shared.handleStravaOAuthCallback(url)
+                            do {
+                                try await AuthManager.shared.handleStravaOAuthCallback(url)
+                            } catch {
+                                // TODO display user facing alert
+                                let message = error.localizedDescription
+                            }
                         }
                     default:
                         break

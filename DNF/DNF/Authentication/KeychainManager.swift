@@ -97,9 +97,7 @@ extension KeychainManager {
 
             // Update existing item
             SecItemUpdate(query, attributesToUpdate)
-        }
-        
-        if status != errSecSuccess {
+        } else if status != errSecSuccess {
             let message = "Error: \(status)"
             DNFLogger.log(.fatal, message, sender: String(describing: self))
         }

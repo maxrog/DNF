@@ -24,20 +24,18 @@ actor AuthManager {
 
 extension AuthManager {
     
-    func handleStravaOAuthCallback(_ url: URL) {
+    func handleStravaOAuthCallback(_ url: URL) async throws {
         guard let code = url["code"] else { return }
         if let state = url["state"] {
             // state describing where authentication happened
         }
-        Task {
-            do {
-                let tokenData = try await StravaNetworkDispatch.fetchAccessTokens(with: code)
-                
-            } catch {
-                // TODO display alert
-                let message = error.localizedDescription
-                DNFLogger.log(.error, message, sender: String(describing: self))
-            }
+        do {
+            let tokenData = try await StravaNetworkDispatch.fetchAccessTokens(with: code)
+            StravaAPIConfiguration.shared.stravaTokenData = tokenData
+        } catch {
+            let message = error.localizedDescription
+            DNFLogger.log(.error, message, sender: String(describing: self))
+            throw error
         }
     }
 }

@@ -22,6 +22,15 @@ class StravaAPIConfiguration {
     var stravaAPIKey: String
     var stravaRedirect: String
     
+    var stravaAthleteId: String {
+        guard let id = stravaTokenData?.athleteId else {
+            let message = "Missing athlete ID"
+            DNFLogger.log(.fatal, message, sender: String(describing: self))
+            return ""
+        }
+        return "\(id)"
+    }
+    
     private init() {
         let stravaPlist = FileManager.plist(named: "NetworkConfiguration", childName: "Strava")
         self.stravaBaseUrl = stravaPlist["StravaBaseUrl"] as? String ?? ""

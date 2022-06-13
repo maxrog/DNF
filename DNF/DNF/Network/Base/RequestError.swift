@@ -11,6 +11,7 @@ enum RequestError: Error {
     case decode
     case invalidURL
     case noResponse
+    case missingToken
     case unauthorized
     case unexpectedStatusCode
     case unknown
@@ -21,6 +22,8 @@ enum RequestError: Error {
             return "Decode error"
         case .unauthorized:
             return "Session expired"
+        case .missingToken:
+            return "Missing token"
         default:
             return "Unknown error"
         }

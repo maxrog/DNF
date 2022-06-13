@@ -28,11 +28,10 @@ class StravaAuthViewModel: NSObject, ObservableObject, ASWebAuthenticationPresen
             
             let authSession = ASWebAuthenticationSession(url: url, callbackURLScheme: "localhost") { url, error in
                 guard error == nil else {
-                    let errorMessage = "OAuth error receiving callback"
-                    DNFLogger.log(.error, errorMessage, sender: String(describing: self))
+                    let message = "OAuth error receiving callback"
+                    DNFLogger.log(.error, message, sender: String(describing: self))
                     return
                 }
-                print(url?.absoluteURL)
             }
             
             authSession.presentationContextProvider = self

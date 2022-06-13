@@ -37,13 +37,28 @@ struct StravaNetworkDispatch {
         
         return stravaTokenData
     }
+
+}
+
+/*
+ Authorized Requests
+ */
+
+extension StravaNetworkDispatch {
     
-    // MARK: Member Data
+    // MARK: Athlete data
     
-    /*
-     https://www.donnywals.com/building-a-token-refresh-flow-with-async-await-and-swift-concurrency/
-     Use something like this to check if we should try to refresh token if get failed call
-     */
-    
+    static func fetchAthleteInfo() async throws -> StravaAthleteData {
+        let athleteEndpoint = StravaAthleteEndpoint(type: .info)
+        
+        guard let urlRequest = try await athleteEndpoint.authorizedRequest() else {
+            throw RequestError.missingToken
+        }
+        
+        let (data, _) = try await URLSession.shared.data(for: urlRequest)
+        let athleteInfo = try JSONDecoder().decode(StravaAthleteData.self, from: data)
+        
+        return athleteInfo
+    }
     
 }

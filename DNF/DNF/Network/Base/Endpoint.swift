@@ -33,6 +33,9 @@ protocol Endpoint {
     
     /// The final computed url
     var urlRequest: URLRequest? { get }
+    
+    /// A url request with bearer token attached (async because we may need to refresh token)
+    func authorizedRequest() async throws -> URLRequest?
 }
 
 /*
@@ -85,6 +88,15 @@ extension Endpoint {
             request.httpBody = jsonBody
         }
         
+        return request
+    }
+    
+    func authorizedRequest() async throws -> URLRequest? {
+        let token = try await AuthManager.shared.validToken()
+        guard var request = urlRequest else {
+            throw RequestError.missingToken
+        }
+        request.setValue("Bearer \(token.accessToken)", forHTTPHeaderField: "Authorization")
         return request
     }
     
