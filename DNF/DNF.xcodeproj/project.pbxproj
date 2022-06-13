@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF4D755B28574D2C001A27EE /* AuthStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4D755A28574D2C001A27EE /* AuthStateViewModel.swift */; };
+		AF4D755E28574F5E001A27EE /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4D755D28574F5E001A27EE /* ProfileView.swift */; };
+		AF4D756028576A89001A27EE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4D755F28576A89001A27EE /* ProfileViewModel.swift */; };
 		AF717BD82851759F0011D0EE /* DNFApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF717BD72851759F0011D0EE /* DNFApp.swift */; };
-		AF717BDA2851759F0011D0EE /* StravaAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF717BD92851759F0011D0EE /* StravaAuthView.swift */; };
+		AF717BDA2851759F0011D0EE /* StravaOAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF717BD92851759F0011D0EE /* StravaOAuthView.swift */; };
 		AF717BDC2851759F0011D0EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF717BDB2851759F0011D0EE /* Assets.xcassets */; };
 		AF717BDF2851759F0011D0EE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF717BDE2851759F0011D0EE /* Preview Assets.xcassets */; };
 		AF717BE928517B450011D0EE /* NetworkConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF717BE828517B450011D0EE /* NetworkConfiguration.plist */; };
 		AF84673F28529C33009FAD23 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF84673E28529C33009FAD23 /* FileManager.swift */; };
 		AF8467422852A83D009FAD23 /* DNFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8467412852A83D009FAD23 /* DNFButton.swift */; };
-		AF84674B2852BC2E009FAD23 /* StravaAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF84674A2852BC2E009FAD23 /* StravaAuthViewModel.swift */; };
+		AF84674B2852BC2E009FAD23 /* StravaOAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF84674A2852BC2E009FAD23 /* StravaOAuthViewModel.swift */; };
 		AF84674D2852BE54009FAD23 /* StravaAuthEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF84674C2852BE54009FAD23 /* StravaAuthEndpoint.swift */; };
 		AF8467502852CA4F009FAD23 /* DNFLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF84674F2852CA4F009FAD23 /* DNFLogger.swift */; };
 		AF846754285362EA009FAD23 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF846753285362EA009FAD23 /* AuthManager.swift */; };
@@ -31,16 +34,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF4D755A28574D2C001A27EE /* AuthStateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStateViewModel.swift; sourceTree = "<group>"; };
+		AF4D755D28574F5E001A27EE /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		AF4D755F28576A89001A27EE /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		AF717BD42851759F0011D0EE /* DNF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DNF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF717BD72851759F0011D0EE /* DNFApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNFApp.swift; sourceTree = "<group>"; };
-		AF717BD92851759F0011D0EE /* StravaAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaAuthView.swift; sourceTree = "<group>"; };
+		AF717BD92851759F0011D0EE /* StravaOAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaOAuthView.swift; sourceTree = "<group>"; };
 		AF717BDB2851759F0011D0EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF717BDE2851759F0011D0EE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AF717BE828517B450011D0EE /* NetworkConfiguration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NetworkConfiguration.plist; sourceTree = "<group>"; };
 		AF84673E28529C33009FAD23 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		AF8467412852A83D009FAD23 /* DNFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNFButton.swift; sourceTree = "<group>"; };
 		AF8467472852B1FC009FAD23 /* DNF-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DNF-Info.plist"; sourceTree = "<group>"; };
-		AF84674A2852BC2E009FAD23 /* StravaAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaAuthViewModel.swift; sourceTree = "<group>"; };
+		AF84674A2852BC2E009FAD23 /* StravaOAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaOAuthViewModel.swift; sourceTree = "<group>"; };
 		AF84674C2852BE54009FAD23 /* StravaAuthEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaAuthEndpoint.swift; sourceTree = "<group>"; };
 		AF84674F2852CA4F009FAD23 /* DNFLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNFLogger.swift; sourceTree = "<group>"; };
 		AF846753285362EA009FAD23 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
@@ -67,6 +73,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF4D755C28574F50001A27EE /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				AF4D755D28574F5E001A27EE /* ProfileView.swift */,
+				AF4D755F28576A89001A27EE /* ProfileViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		AF717BCB2851759F0011D0EE = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				AF8467482852BC0B009FAD23 /* Auth */,
+				AF4D755C28574F50001A27EE /* Profile */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -146,8 +162,8 @@
 		AF8467482852BC0B009FAD23 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				AF717BD92851759F0011D0EE /* StravaAuthView.swift */,
-				AF84674A2852BC2E009FAD23 /* StravaAuthViewModel.swift */,
+				AF717BD92851759F0011D0EE /* StravaOAuthView.swift */,
+				AF84674A2852BC2E009FAD23 /* StravaOAuthViewModel.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -166,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				AF846753285362EA009FAD23 /* AuthManager.swift */,
+				AF4D755A28574D2C001A27EE /* AuthStateViewModel.swift */,
 				AF8626B7285649EF0079D911 /* StravaAPIConfiguration.swift */,
 				AF8626B528562A290079D911 /* KeychainManager.swift */,
 			);
@@ -288,18 +305,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF8626AB2853E0A10079D911 /* StravaAthleteEndpoint.swift in Sources */,
-				AF717BDA2851759F0011D0EE /* StravaAuthView.swift in Sources */,
-				AF84674B2852BC2E009FAD23 /* StravaAuthViewModel.swift in Sources */,
+				AF717BDA2851759F0011D0EE /* StravaOAuthView.swift in Sources */,
+				AF84674B2852BC2E009FAD23 /* StravaOAuthViewModel.swift in Sources */,
 				AF8626B8285649EF0079D911 /* StravaAPIConfiguration.swift in Sources */,
 				AF8626B22853E2400079D911 /* StravaTokenData.swift in Sources */,
 				AF8467502852CA4F009FAD23 /* DNFLogger.swift in Sources */,
+				AF4D756028576A89001A27EE /* ProfileViewModel.swift in Sources */,
 				AF846754285362EA009FAD23 /* AuthManager.swift in Sources */,
 				AF9789BC28520F98003BD82F /* Endpoint.swift in Sources */,
 				AF8626B628562A290079D911 /* KeychainManager.swift in Sources */,
 				AF717BD82851759F0011D0EE /* DNFApp.swift in Sources */,
 				AF8626AD2853E1BF0079D911 /* StravaNetworkDispatch.swift in Sources */,
+				AF4D755B28574D2C001A27EE /* AuthStateViewModel.swift in Sources */,
 				AF8467422852A83D009FAD23 /* DNFButton.swift in Sources */,
 				AF8626BA2856A1730079D911 /* StravaAthleteData.swift in Sources */,
+				AF4D755E28574F5E001A27EE /* ProfileView.swift in Sources */,
 				AF84673F28529C33009FAD23 /* FileManager.swift in Sources */,
 				AF8626A92853E03A0079D911 /* RequestError.swift in Sources */,
 				AF84674D2852BE54009FAD23 /* StravaAuthEndpoint.swift in Sources */,
