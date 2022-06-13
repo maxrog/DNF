@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StravaOAuthView: View {
     
-    @State var authViewModel = StravaOAuthViewModel()
+    @StateObject var authViewModel = StravaOAuthViewModel()
     
     var body: some View {
         Button {
