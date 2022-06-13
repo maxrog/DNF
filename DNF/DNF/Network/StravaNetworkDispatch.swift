@@ -41,7 +41,7 @@ struct StravaNetworkDispatch {
 }
 
 /*
- Authorized Requests
+ MARK: Authorized Requests
  */
 
 extension StravaNetworkDispatch {

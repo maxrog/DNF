@@ -32,7 +32,7 @@ struct DNFApp: App {
                             do {
                                 try await authStateViewModel.signIn(callbackUrl: url)
                             } catch {
-                                // TODO display user facing alert
+                                // TODO: Error handling
                                 let message = error.localizedDescription
                             }
                         }
