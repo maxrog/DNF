@@ -20,9 +20,7 @@ struct DNFApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                DNFAuthSwitchView()
-            }
+            DNFAuthSwitchView()
             .environmentObject(authStateViewModel)
             .onOpenURL { url in
                     guard let scheme = url.scheme else { return }
@@ -69,7 +67,7 @@ struct DNFAuthSwitchView: View {
     
     var body: some View {
         if authViewModel.isLoggedIn {
-            ProfileView()
+            MainTabView()
         } else {
             StravaOAuthView()
         }
