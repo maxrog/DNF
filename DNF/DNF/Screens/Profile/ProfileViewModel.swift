@@ -7,23 +7,14 @@
 
 import Foundation
 
+@MainActor
 class ProfileViewModel: ObservableObject {
     
     @Published var athlete: StravaAthleteData?
-    
-    init() {
-        Task {
-            do {
-                self.athlete = try await fetchAthleteProfile()
-            } catch {
-                
-            }
-        }
-    }
-    
-    func fetchAthleteProfile() async throws -> StravaAthleteData {
+
+    func fetchAthleteProfile() async throws {
         do {
-            return try await StravaNetworkDispatch.fetchAthleteInfo()
+            self.athlete = try await StravaNetworkDispatch.fetchAthleteInfo()
         } catch {
             throw error
         }

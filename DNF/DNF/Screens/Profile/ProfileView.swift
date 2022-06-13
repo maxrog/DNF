@@ -10,7 +10,7 @@ import SwiftUI
 struct ProfileView: View {
     
     @EnvironmentObject var authViewModel: AuthStateViewModel
-    @State var profileViewModel = ProfileViewModel()
+    @StateObject var profileViewModel = ProfileViewModel()
     
     var body: some View {
         VStack {
@@ -21,10 +21,22 @@ struct ProfileView: View {
             }
             .frame(width: 128, height: 128)
             .clipShape(RoundedRectangle(cornerRadius: 25))
+            
+        
+            Text(profileViewModel.athlete?.firstname ?? "-")
+            Text(profileViewModel.athlete?.lastname ?? "-")
             Button {
                 authViewModel.signOut()
             } label: {
                 DNFButton(title: "Logout")
+            }
+        }
+        .task {
+            do {
+                try await profileViewModel.fetchAthleteProfile()
+            } catch {
+                // TODO: Error handling
+                let message = error.localizedDescription
             }
         }
     }
