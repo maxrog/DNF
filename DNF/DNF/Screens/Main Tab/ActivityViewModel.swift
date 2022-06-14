@@ -1,21 +1,21 @@
 //
-//  TodayViewModel.swift
+//  ActivityViewModel.swift
 //  DNF
 //
-//  Created by Max Rogers on 6/13/22.
+//  Created by Max Rogers on 6/14/22.
 //
 
-import SwiftUI
+import Foundation
 
 @MainActor
-class TodayViewModel: ObservableObject {
+class ActivityViewModel: ObservableObject {
     
-    @Published var featuredActivity: StravaActivity?
+    @Published var activityData: StravaActivityData?
     
     func fetchActivities() async throws {
         do {
             let activityData = try await StravaNetworkDispatch.fetchAthleteActivities()
-            self.featuredActivity = activityData.featuredActivity
+            self.activityData = activityData
         } catch {
             throw error
         }

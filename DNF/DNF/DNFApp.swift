@@ -11,7 +11,9 @@ import SwiftUI
 struct DNFApp: App {
     
     @Environment(\.scenePhase) var scenePhase
-
+    
+    // App Wide Environment Objects
+    /// User Authentication State
     @StateObject var authStateViewModel = AuthStateViewModel()
     
     init() {
@@ -21,8 +23,8 @@ struct DNFApp: App {
     var body: some Scene {
         WindowGroup {
             DNFAuthSwitchView()
-            .environmentObject(authStateViewModel)
-            .onOpenURL { url in
+                .environmentObject(authStateViewModel)
+                .onOpenURL { url in
                     guard let scheme = url.scheme else { return }
                     switch scheme {
                     case StravaAPIConfiguration.authRedirectUrlScheme:

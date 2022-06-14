@@ -9,23 +9,19 @@ import SwiftUI
 
 struct TodayView: View {
     
-    @StateObject var todayViewModel = TodayViewModel()
+    @EnvironmentObject var activityViewModel: ActivityViewModel
+    private var featuredActivity: StravaActivity? {
+        activityViewModel.activityData?.featuredActivity
+    }
     
     var body: some View {
         VStack(spacing: 12) {
-            Text(todayViewModel.featuredActivity?.name ?? "")
+            Text(featuredActivity?.name ?? "")
                 .font(.title)
-            Text(todayViewModel.featuredActivity?.startDate.formatted(date: .abbreviated, time: .shortened) ?? "")
-            Text("Miles: \(todayViewModel.featuredActivity?.distance ?? 0.0)")
-            Text("Time On Feet: \(todayViewModel.featuredActivity?.elapsedTime ?? "")")
-        }
-        .task {
-            do {
-                try await todayViewModel.fetchActivities()
-            } catch {
-                // TODO: Error handling
-                let message = error.localizedDescription
-            }
+            Text(featuredActivity?.startDate.formatted(date: .abbreviated, time: .shortened) ?? "")
+            Text("Miles: \(featuredActivity?.distance ?? 0.0)")
+            Text("Time On Feet: \(featuredActivity?.elapsedTime ?? "")")
+            Text("Elevation Gain: \(featuredActivity?.elevationGain ?? 0) ft")
         }
     }
     

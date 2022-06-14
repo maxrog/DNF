@@ -9,6 +9,10 @@ import SwiftUI
 
 struct MainTabView: View {
     
+    // Main Tab Environment Objects
+    /// The athelete's list of activities
+    @StateObject var activityViewModel = ActivityViewModel()
+    
     var body: some View {
         TabView {
             TodayView()
@@ -24,6 +28,15 @@ struct MainTabView: View {
                     Image(systemName: "lanyardcard.fill")
                 }
         }
+        .task {
+            do {
+                try await activityViewModel.fetchActivities()
+            } catch {
+                // TODO: Error handling
+                let message = error.localizedDescription
+            }
+        }
+        .environmentObject(activityViewModel)
     }
     
 }

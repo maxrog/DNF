@@ -14,10 +14,10 @@
 		AF70373E2857E2ED00563BB8 /* StravaActivityEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF70373D2857E2ED00563BB8 /* StravaActivityEndpoint.swift */; };
 		AF7037412857E54D00563BB8 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7037402857E54D00563BB8 /* MainTabView.swift */; };
 		AF7037442857E71400563BB8 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7037432857E71400563BB8 /* TodayView.swift */; };
-		AF7037462857E73400563BB8 /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7037452857E73400563BB8 /* TodayViewModel.swift */; };
 		AF7037482857E80C00563BB8 /* StravaActivityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7037472857E80C00563BB8 /* StravaActivityData.swift */; };
 		AF70374C28589D7D00563BB8 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF70374B28589D7D00563BB8 /* StatsView.swift */; };
 		AF70374E28589D9400563BB8 /* StatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF70374D28589D9400563BB8 /* StatsViewModel.swift */; };
+		AF7037502858BD3000563BB8 /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF70374F2858BD3000563BB8 /* ActivityViewModel.swift */; };
 		AF717BD82851759F0011D0EE /* DNFApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF717BD72851759F0011D0EE /* DNFApp.swift */; };
 		AF717BDA2851759F0011D0EE /* StravaOAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF717BD92851759F0011D0EE /* StravaOAuthView.swift */; };
 		AF717BDC2851759F0011D0EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF717BDB2851759F0011D0EE /* Assets.xcassets */; };
@@ -49,10 +49,10 @@
 		AF70373D2857E2ED00563BB8 /* StravaActivityEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaActivityEndpoint.swift; sourceTree = "<group>"; };
 		AF7037402857E54D00563BB8 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		AF7037432857E71400563BB8 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
-		AF7037452857E73400563BB8 /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
 		AF7037472857E80C00563BB8 /* StravaActivityData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaActivityData.swift; sourceTree = "<group>"; };
 		AF70374B28589D7D00563BB8 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		AF70374D28589D9400563BB8 /* StatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewModel.swift; sourceTree = "<group>"; };
+		AF70374F2858BD3000563BB8 /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		AF717BD42851759F0011D0EE /* DNF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DNF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF717BD72851759F0011D0EE /* DNFApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNFApp.swift; sourceTree = "<group>"; };
 		AF717BD92851759F0011D0EE /* StravaOAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaOAuthView.swift; sourceTree = "<group>"; };
@@ -102,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				AF7037402857E54D00563BB8 /* MainTabView.swift */,
+				AF70374F2858BD3000563BB8 /* ActivityViewModel.swift */,
 			);
 			path = "Main Tab";
 			sourceTree = "<group>";
@@ -110,7 +111,6 @@
 			isa = PBXGroup;
 			children = (
 				AF7037432857E71400563BB8 /* TodayView.swift */,
-				AF7037452857E73400563BB8 /* TodayViewModel.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -357,6 +357,7 @@
 				AF84674B2852BC2E009FAD23 /* StravaOAuthViewModel.swift in Sources */,
 				AF8626B8285649EF0079D911 /* StravaAPIConfiguration.swift in Sources */,
 				AF8626B22853E2400079D911 /* StravaTokenData.swift in Sources */,
+				AF7037502858BD3000563BB8 /* ActivityViewModel.swift in Sources */,
 				AF8467502852CA4F009FAD23 /* DNFLogger.swift in Sources */,
 				AF4D756028576A89001A27EE /* ProfileViewModel.swift in Sources */,
 				AF846754285362EA009FAD23 /* AuthManager.swift in Sources */,
@@ -371,7 +372,6 @@
 				AF7037482857E80C00563BB8 /* StravaActivityData.swift in Sources */,
 				AF4D755B28574D2C001A27EE /* AuthStateViewModel.swift in Sources */,
 				AF8467422852A83D009FAD23 /* DNFButton.swift in Sources */,
-				AF7037462857E73400563BB8 /* TodayViewModel.swift in Sources */,
 				AF8626BA2856A1730079D911 /* StravaAthleteData.swift in Sources */,
 				AF4D755E28574F5E001A27EE /* ProfileView.swift in Sources */,
 				AF84673F28529C33009FAD23 /* FileManager.swift in Sources */,
