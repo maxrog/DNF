@@ -26,7 +26,6 @@ struct StravaActivity: Codable {
     
     let totalElevationGain: Int
     let type, sportType: String
-    let achievementCount: Int
     let photoCount: Int
     let map: Map
     let startLatlng, endLatlng: [Double]
@@ -40,7 +39,7 @@ struct StravaActivity: Codable {
     let uploadIDStr, externalID: String
     let prCount: Int
     
-    // To be processed
+    // To be processed, raw values
     let _distance: Double
     let _elapsedTime: Int
     let _startDate: String
@@ -60,7 +59,6 @@ struct StravaActivity: Codable {
         _startDate.isoDate
     }
     
-
     enum CodingKeys: String, CodingKey {
         case id, name, type
         case _distance = "distance"
@@ -68,7 +66,6 @@ struct StravaActivity: Codable {
         case _startDate = "start_date"
         case totalElevationGain = "total_elevation_gain"
         case sportType = "sport_type"
-        case achievementCount = "achievement_count"
         case photoCount = "photo_count"
         case map
         case startLatlng = "start_latlng"

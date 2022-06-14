@@ -13,7 +13,7 @@ struct ProfileView: View {
     @StateObject var profileViewModel = ProfileViewModel()
     
     var body: some View {
-        VStack {
+        VStack(spacing: 12) {
             AsyncImage(url: URL(string: profileViewModel.athlete?.profile ?? "")) { image in
                 image.resizable()
             } placeholder: {

@@ -12,11 +12,12 @@ struct TodayView: View {
     @StateObject var todayViewModel = TodayViewModel()
     
     var body: some View {
-        VStack {
+        VStack(spacing: 12) {
             Text(todayViewModel.featuredActivity?.name ?? "")
+                .font(.title)
             Text(todayViewModel.featuredActivity?.startDate.formatted(date: .abbreviated, time: .shortened) ?? "")
             Text("Miles: \(todayViewModel.featuredActivity?.distance ?? 0.0)")
-            Text("Time: \(todayViewModel.featuredActivity?.elapsedTime ?? "")")
+            Text("Time On Feet: \(todayViewModel.featuredActivity?.elapsedTime ?? "")")
         }
         .task {
             do {
