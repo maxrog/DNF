@@ -7,16 +7,18 @@
 
 import Foundation
 
-@MainActor
-class StatsViewModel: ObservableObject {
+class StatsViewModel: LoadableObject {
     
     @Published var stats: StravaAthleteStatsData?
     
-    func fetchStats() async throws {
+    @MainActor
+    func fetchStats() async {
         do {
+            loadingState = .loading
             self.stats = try await StravaNetworkDispatch.fetchAthleteStats()
+            loadingState = .finished
         } catch {
-            throw error
+            loadingState = .failed(error)
         }
     }
     

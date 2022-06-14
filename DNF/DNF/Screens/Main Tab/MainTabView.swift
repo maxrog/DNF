@@ -29,12 +29,7 @@ struct MainTabView: View {
                 }
         }
         .task {
-            do {
-                try await activityViewModel.fetchActivities()
-            } catch {
-                // TODO: Error handling
-                let message = error.localizedDescription
-            }
+            await activityViewModel.fetchActivities()
         }
         .environmentObject(activityViewModel)
     }

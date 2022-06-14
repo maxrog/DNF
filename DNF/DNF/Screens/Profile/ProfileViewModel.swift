@@ -7,16 +7,18 @@
 
 import Foundation
 
-@MainActor
-class ProfileViewModel: ObservableObject {
+class ProfileViewModel: LoadableObject {
     
     @Published var athlete: StravaAthleteData?
 
-    func fetchAthleteProfile() async throws {
+    @MainActor
+    func fetchProfile() async {
         do {
+            loadingState = .loading
             self.athlete = try await StravaNetworkDispatch.fetchAthleteInfo()
+            loadingState = .finished
         } catch {
-            throw error
+            loadingState = .failed(error)
         }
     }
     

@@ -24,6 +24,8 @@ enum RequestError: Error {
             return "Session expired"
         case .missingToken:
             return "Missing token"
+        case .noResponse:
+            return "No connection"
         default:
             return "Unknown error"
         }
