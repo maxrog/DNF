@@ -20,7 +20,14 @@ struct StravaActivityEndpoint: Endpoint {
         }
     }
     
-    var queryParams: [String : String]?
+    var queryParams: [String : String]? {
+        switch type {
+        case.list:
+            return ["per_page" : "200"]
+        case .stream:
+            return nil
+        }
+    }
     var headers: [String : String]?
     var body: [String : String]?
     
