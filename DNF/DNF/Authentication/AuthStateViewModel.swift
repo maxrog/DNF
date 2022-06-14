@@ -14,6 +14,9 @@ class AuthStateViewModel: ObservableObject {
     
     func signIn(callbackUrl: URL) async throws {
         do {
+            if isLoggedIn {
+                signOut()
+            }
             isLoggedIn = try await AuthTokenManager.shared.handleStravaOAuthCallback(callbackUrl)
         } catch {
             throw error

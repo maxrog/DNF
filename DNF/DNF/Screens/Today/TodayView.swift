@@ -15,21 +15,25 @@ struct TodayView: View {
     }
     
     var body: some View {
-        switch activityViewModel.loadingState {
-        case .finished:
-            VStack(spacing: 12) {
-                Text(featuredActivity?.name ?? "")
-                    .font(.title)
-                Text(featuredActivity?.startDate.formatted(date: .abbreviated, time: .shortened) ?? "")
-                Text("Miles: \(featuredActivity?.distance ?? 0.0)")
-                Text("Time On Feet: \(featuredActivity?.elapsedTime ?? "")")
-                Text("Elevation Gain: \(featuredActivity?.elevationGain ?? 0) ft")
+        ZStack {
+            switch activityViewModel.loadingState {
+            case .complete:
+                VStack(spacing: 12) {
+                    Text(featuredActivity?.name ?? "")
+                        .font(.title)
+                    Text(featuredActivity?.startDate.formatted(date: .abbreviated, time: .shortened) ?? "")
+                    Text("Miles: \(featuredActivity?.distance ?? 0.0)")
+                    Text("Time On Feet: \(featuredActivity?.elapsedTime ?? "")")
+                    Text("Elevation Gain: \(featuredActivity?.elevationGain ?? 0) ft")
+                }
+            case .loading:
+                ProgressView()
+            case .failed(let error):
+                // TODO
+                Text("Error: \(error.localizedDescription)")
             }
-        case .idle, .loading:
-            ProgressView()
-        case .failed(let error):
-            // TODO 
-            Text("Error: \(error.localizedDescription)")
+        }.task {
+            await activityViewModel.fetchActivities()
         }
     }
     

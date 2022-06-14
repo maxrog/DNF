@@ -14,10 +14,9 @@ class ActivityViewModel: LoadableObject {
     @MainActor
     func fetchActivities() async {
         do {
-            loadingState = .loading
             let activityData = try await StravaNetworkDispatch.fetchAthleteActivities()
             self.activityData = activityData
-            loadingState = .finished
+            loadingState = .complete
         } catch {
             loadingState = .failed(error)
         }

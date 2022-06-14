@@ -8,18 +8,13 @@
 import Foundation
 
 enum LoadingState {
-    case idle
     case loading
     case failed(Error)
-    case finished
+    case complete
 }
 
 class LoadableObject: ObservableObject {
     
-    @Published var loadingState: LoadingState
-    
-    init(loadingState: LoadingState = .idle) {
-        self.loadingState = loadingState
-    }
+    @Published var loadingState: LoadingState = .loading
     
 }
