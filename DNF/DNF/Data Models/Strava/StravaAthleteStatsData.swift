@@ -7,11 +7,10 @@
 
 import Foundation
 
-// TODO clean this up / documentation
 struct StravaAthleteStatsData: Codable {
-    let recentRunTotals: StravaStatTotals
-    let ytdRunTotals: StravaStatTotals
-    let allRunTotals: StravaStatTotals
+    let recentRunTotals: StravaStatTotals?
+    let ytdRunTotals: StravaStatTotals?
+    let allRunTotals: StravaStatTotals?
 
     enum CodingKeys: String, CodingKey {
         case recentRunTotals = "recent_run_totals"
@@ -21,14 +20,36 @@ struct StravaAthleteStatsData: Codable {
 }
 
 struct StravaStatTotals: Codable {
-    let count, distance, movingTime, elapsedTime: Int
-    let elevationGain, achievementCount: Int
+    
+    let count: Int
+    
+    // To be processed, raw values
+    let _distance: Double
+    let _elapsedTime: Int
+    let _elevationGain: Int
+    
+    // Public computed variables
+    
+    /// The distance ran, in miles
+    public var distance: Double {
+        _distance.metersToMilesValue
+    }
+    
+    /// The elapsed time, neatly formatted
+    public var elapsedTime: String {
+        _elapsedTime.hhmmssStringValue
+    }
+    
+    /// The elevation gain, in feet
+    public var elevationGain: Int {
+        _elevationGain.metersToFeetValue
+    }
+    
 
     enum CodingKeys: String, CodingKey {
-        case count, distance
-        case movingTime = "moving_time"
-        case elapsedTime = "elapsed_time"
-        case elevationGain = "elevation_gain"
-        case achievementCount = "achievement_count"
+        case _distance = "distance"
+        case _elapsedTime = "elapsed_time"
+        case _elevationGain = "elevation_gain"
+        case count
     }
 }

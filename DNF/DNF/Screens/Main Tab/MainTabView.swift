@@ -15,9 +15,13 @@ struct MainTabView: View {
                 .tabItem {
                     Image(systemName: "gauge")
                 }
+            StatsView()
+                .tabItem {
+                    Image(systemName: "star.fill")
+                }
             ProfileView()
                 .tabItem {
-                    Image(systemName: "person.crop.circle.fill")
+                    Image(systemName: "lanyardcard.fill")
                 }
         }
     }

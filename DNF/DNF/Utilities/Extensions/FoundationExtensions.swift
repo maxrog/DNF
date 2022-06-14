@@ -54,6 +54,13 @@ extension Int {
         return formatter.string(from: TimeInterval(self)) ?? ""
     }
     
+    // MARK: Unit Conversion
+    
+    /// Converts a value in meters to feet
+    var metersToFeetValue: Int {
+        return Int((Double(self) * 3.28084))
+    }
+    
 }
 
 
