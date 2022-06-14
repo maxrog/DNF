@@ -85,7 +85,9 @@ extension StravaNetworkDispatch {
         
         let (data, _) = try await URLSession.shared.data(for: urlRequest)
         let activities = try JSONDecoder().decode([StravaActivity].self, from: data)
-        let activityData = StravaActivityData(allActivities: activities)
+        var filteredActivities = activities.filter { $0.sportType == StravaAPIConfiguration.mainActivityType }
+        filteredActivities = filteredActivities.sorted(by: { $0.startDate > $1.startDate })
+        let activityData = StravaActivityData(allActivities: filteredActivities)
         
         return activityData
     }

@@ -13,8 +13,7 @@ struct StravaActivityData {
 
     /// The most recent activity
     var featuredActivity: StravaActivity? {
-        let filteredActivities = allActivities.filter { $0.sportType == StravaAPIConfiguration.mainActivityType }
-        return filteredActivities.sorted(by: { $0.startDate > $1.startDate }).first
+        allActivities.first
     }
     
 }
