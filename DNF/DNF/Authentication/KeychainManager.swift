@@ -17,7 +17,7 @@ enum KeychainAccount: String {
     case strava
 }
 enum KeychainService: String {
-    case standard
+    case standard = "rogers.max.DNF.app"
 }
 
 class KeychainManager {
