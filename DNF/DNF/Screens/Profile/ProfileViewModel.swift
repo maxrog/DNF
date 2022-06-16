@@ -12,7 +12,7 @@ class ProfileViewModel: LoadableObject {
     @Published var athlete: StravaAthleteData?
 
     @MainActor
-    func fetchProfile() async {
+    override func load() async {
         do {
             self.athlete = try await StravaNetworkDispatch.fetchAthleteInfo()
             loadingState = .complete

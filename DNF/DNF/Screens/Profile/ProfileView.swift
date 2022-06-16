@@ -8,41 +8,31 @@
 import SwiftUI
 
 struct ProfileView: View {
-    
+//    TODO if keep switching tabs it errors out. figure out why. maybe need charles. or reset loading state on task load time?
     @EnvironmentObject var authViewModel: AuthStateViewModel
     @StateObject var profileViewModel = ProfileViewModel()
     
     var body: some View {
-        ZStack {
-            switch profileViewModel.loadingState {
-            case .complete:
-                VStack(spacing: 12) {
-                    AsyncImage(url: URL(string: profileViewModel.athlete?.profile ?? "")) { image in
-                        image.resizable()
-                    } placeholder: {
-                        Color.red
-                    }
-                    .frame(width: 128, height: 128)
-                    .clipShape(RoundedRectangle(cornerRadius: 25))
-                    
-                    
-                    Text(profileViewModel.athlete?.firstname ?? "-")
-                    Text(profileViewModel.athlete?.lastname ?? "-")
-                    Button {
-                        authViewModel.signOut()
-                    } label: {
-                        DNFButton(title: "Logout")
-                    }
+        DNFLoadingView({
+            VStack(spacing: 12) {
+                AsyncImage(url: URL(string: profileViewModel.athlete?.profile ?? "")) { image in
+                    image.resizable()
+                } placeholder: {
+                    Color.red
                 }
-            case .loading:
-                ProgressView()
-            case .failed(let error):
-                // TODO
-                Text("Error: \(error.localizedDescription)")
+                .frame(width: 128, height: 128)
+                .clipShape(RoundedRectangle(cornerRadius: 25))
+                
+                
+                Text(profileViewModel.athlete?.firstname ?? "-")
+                Text(profileViewModel.athlete?.lastname ?? "-")
+                Button {
+                    authViewModel.signOut()
+                } label: {
+                    DNFButton(title: "Logout")
+                }
             }
-        }.task {
-            await profileViewModel.fetchProfile()
-        }
+        }, viewModel: profileViewModel)
     }
     
 }

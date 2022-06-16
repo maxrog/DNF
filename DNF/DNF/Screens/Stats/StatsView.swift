@@ -12,45 +12,35 @@ struct StatsView: View {
     @StateObject var statsViewModel = StatsViewModel()
     
     var body: some View {
-        ZStack {
-            switch statsViewModel.loadingState {
-            case .complete:
+        DNFLoadingView({
+            VStack {
+                Spacer()
                 VStack {
-                    Spacer()
-                    VStack {
-                        Text("Recent")
-                            .font(.title)
-                        Text("Count: \(statsViewModel.stats?.recentRunTotals?.count ?? 0)")
-                        Text("Distance: \(statsViewModel.stats?.recentRunTotals?.distance ?? 0)")
-                        Text("Time On Feet: \(statsViewModel.stats?.recentRunTotals?.elapsedTime ?? "")")
-                    }
-                    Spacer()
-                    VStack {
-                        Text("YTD")
-                            .font(.title)
-                        Text("Count: \(statsViewModel.stats?.ytdRunTotals?.count ?? 0)")
-                        Text("Distance: \(statsViewModel.stats?.ytdRunTotals?.distance ?? 0)")
-                        Text("Time On Feet: \(statsViewModel.stats?.ytdRunTotals?.elapsedTime ?? "")")
-                    }
-                    Spacer()
-                    VStack {
-                        Text("All")
-                            .font(.title)
-                        Text("Count: \(statsViewModel.stats?.allRunTotals?.count ?? 0)")
-                        Text("Distance: \(statsViewModel.stats?.allRunTotals?.distance ?? 0)")
-                        Text("Time On Feet: \(statsViewModel.stats?.allRunTotals?.elapsedTime ?? "")")
-                    }
-                    Spacer()
+                    Text("Recent")
+                        .font(.title)
+                    Text("Count: \(statsViewModel.stats?.recentRunTotals?.count ?? 0)")
+                    Text("Distance: \(statsViewModel.stats?.recentRunTotals?.distance ?? 0)")
+                    Text("Time On Feet: \(statsViewModel.stats?.recentRunTotals?.elapsedTime ?? "")")
                 }
-            case .loading:
-                ProgressView()
-            case .failed(let error):
-                // TODO
-                Text("Error: \(error.localizedDescription)")
+                Spacer()
+                VStack {
+                    Text("YTD")
+                        .font(.title)
+                    Text("Count: \(statsViewModel.stats?.ytdRunTotals?.count ?? 0)")
+                    Text("Distance: \(statsViewModel.stats?.ytdRunTotals?.distance ?? 0)")
+                    Text("Time On Feet: \(statsViewModel.stats?.ytdRunTotals?.elapsedTime ?? "")")
+                }
+                Spacer()
+                VStack {
+                    Text("All")
+                        .font(.title)
+                    Text("Count: \(statsViewModel.stats?.allRunTotals?.count ?? 0)")
+                    Text("Distance: \(statsViewModel.stats?.allRunTotals?.distance ?? 0)")
+                    Text("Time On Feet: \(statsViewModel.stats?.allRunTotals?.elapsedTime ?? "")")
+                }
+                Spacer()
             }
-        }.task {
-            await statsViewModel.fetchStats()
-        }
+        }, viewModel: statsViewModel)
     }
     
 }

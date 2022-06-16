@@ -12,7 +12,7 @@ class ActivityViewModel: LoadableObject {
     @Published var activityData: StravaActivityData?
     
     @MainActor
-    func fetchActivities() async {
+    override func load() async {
         do {
             let activityData = try await StravaNetworkDispatch.fetchAthleteActivities()
             self.activityData = activityData

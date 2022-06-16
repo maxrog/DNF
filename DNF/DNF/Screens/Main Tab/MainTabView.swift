@@ -33,7 +33,7 @@ struct MainTabView: View {
                 }
         }
         .task {
-            await activityViewModel.fetchActivities()
+            await activityViewModel.load()
         }
         .environmentObject(activityViewModel)
     }

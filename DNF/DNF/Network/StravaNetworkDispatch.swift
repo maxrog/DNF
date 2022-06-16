@@ -58,6 +58,7 @@ extension StravaNetworkDispatch {
         let (data, _) = try await URLSession.shared.data(for: urlRequest)
         let athleteInfo = try JSONDecoder().decode(StravaAthleteData.self, from: data)
         
+        DNFLogger.log(.action, "Fetched athlete info", sender: String(describing: self))
         return athleteInfo
     }
    
@@ -71,6 +72,7 @@ extension StravaNetworkDispatch {
         let (data, _) = try await URLSession.shared.data(for: urlRequest)
         let athleteStats = try JSONDecoder().decode(StravaAthleteStatsData.self, from: data)
         
+        DNFLogger.log(.action, "Fetched athlete stats", sender: String(describing: self))
         return athleteStats
     }
     

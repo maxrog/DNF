@@ -12,7 +12,7 @@ class StatsViewModel: LoadableObject {
     @Published var stats: StravaAthleteStatsData?
     
     @MainActor
-    func fetchStats() async {
+    override func load() async {
         do {
             self.stats = try await StravaNetworkDispatch.fetchAthleteStats()
             loadingState = .complete

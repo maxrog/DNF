@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AF0FA04B2859355B008317F7 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0FA04A2859355B008317F7 /* LoadingState.swift */; };
+		AF0FA04B2859355B008317F7 /* LoadableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0FA04A2859355B008317F7 /* LoadableObject.swift */; };
 		AF0FA04D285954F1008317F7 /* DNFLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0FA04C285954F1008317F7 /* DNFLoadingView.swift */; };
 		AF4D755B28574D2C001A27EE /* AuthStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4D755A28574D2C001A27EE /* AuthStateViewModel.swift */; };
 		AF4D755E28574F5E001A27EE /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4D755D28574F5E001A27EE /* ProfileView.swift */; };
@@ -45,7 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AF0FA04A2859355B008317F7 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
+		AF0FA04A2859355B008317F7 /* LoadableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableObject.swift; sourceTree = "<group>"; };
 		AF0FA04C285954F1008317F7 /* DNFLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNFLoadingView.swift; sourceTree = "<group>"; };
 		AF4D755A28574D2C001A27EE /* AuthStateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStateViewModel.swift; sourceTree = "<group>"; };
 		AF4D755D28574F5E001A27EE /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -293,7 +293,7 @@
 			children = (
 				AF9789BB28520F98003BD82F /* Endpoint.swift */,
 				AF8626A82853E03A0079D911 /* RequestError.swift */,
-				AF0FA04A2859355B008317F7 /* LoadingState.swift */,
+				AF0FA04A2859355B008317F7 /* LoadableObject.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -382,7 +382,7 @@
 				AF70374E28589D9400563BB8 /* StatsViewModel.swift in Sources */,
 				AF7037442857E71400563BB8 /* TodayView.swift in Sources */,
 				AF9789BC28520F98003BD82F /* Endpoint.swift in Sources */,
-				AF0FA04B2859355B008317F7 /* LoadingState.swift in Sources */,
+				AF0FA04B2859355B008317F7 /* LoadableObject.swift in Sources */,
 				AF8626B628562A290079D911 /* KeychainManager.swift in Sources */,
 				AF717BD82851759F0011D0EE /* DNFApp.swift in Sources */,
 				AF70374C28589D7D00563BB8 /* StatsView.swift in Sources */,

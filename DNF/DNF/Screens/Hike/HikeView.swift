@@ -25,7 +25,6 @@ struct HikeView: View {
                 Text("Elevation Gain: \(hike.elevationGain)")
                 Text("Elevation Low: \(hike.elevLow)")
                 Text("Elevation High: \(hike.elevHigh)")
-                
             }
         }, viewModel: activityViewModel)
     }
