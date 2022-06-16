@@ -13,9 +13,6 @@ import Foundation
 
 class StravaAPIConfiguration {
     
-    // To redirect straight to app instead of website, this was what Strava API requires...
-    static let authRedirectUrlScheme = "myapp"
-    static let mainActivityType = "Run"
     static let shared = StravaAPIConfiguration()
     
     var baseUrl: String
@@ -53,5 +50,18 @@ class StravaAPIConfiguration {
         guard let data = tokenData else { return false }
         return data.accessToken.count > 0 && data.refreshToken.count > 0
     }
+    
+}
+
+// MARK: Static values
+
+extension StravaAPIConfiguration {
+    
+    // To redirect straight to app instead of website, this was what Strava API requires...
+    static let authRedirectUrlScheme = "myapp"
+    
+    static let runActivityType = "Run"
+    static let hikeActivityType = "Hike"
+    static let walkActivityType = "Walk"
     
 }

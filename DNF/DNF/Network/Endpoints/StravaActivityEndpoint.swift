@@ -16,7 +16,7 @@ struct StravaActivityEndpoint: Endpoint {
         case .list:
             return "/athlete/activities"
         case .stream:
-            return "/activities/\(StravaAPIConfiguration.mainActivityType)/streams"
+            return "/activities/\(StravaAPIConfiguration.runActivityType)/streams"
         }
     }
     
