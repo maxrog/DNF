@@ -8,8 +8,14 @@
 import Foundation
 
 struct StravaActivityData {
-    /// All of the past 30 activities
+    /// All of the past <= 200 activities
     var allActivities: [StravaActivity]
+    
+    /// Subset of allActivities that are run type
+    var runActivities: [StravaActivity]
+    
+    /// Subset of allActivities that are hike type
+    var hikeActivities: [StravaActivity]
 
     /// The most recent activity
     var featuredActivity: StravaActivity? {
@@ -19,7 +25,7 @@ struct StravaActivityData {
 }
 
 // TODO clean this up / documentation
-struct StravaActivity: Codable {
+struct StravaActivity: Codable, Identifiable {
     let id: Int
     let name: String
     

@@ -23,6 +23,10 @@ struct MainTabView: View {
                 .tabItem {
                     Image(systemName: "star.fill")
                 }
+            HikeView()
+                .tabItem {
+                    Image(systemName: "pawprint.circle.fill")
+                }
             ProfileView()
                 .tabItem {
                     Image(systemName: "lanyardcard.fill")

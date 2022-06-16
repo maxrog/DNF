@@ -7,14 +7,28 @@
 
 import Foundation
 
-// MARK: URL
+// MARK: String
 
-extension URL {
-    /// Ability to check query params via a subscript
-    subscript(queryParam: String) -> String? {
-        guard let url = URLComponents(string: self.absoluteString) else { return nil }
-        return url.queryItems?.first(where: { $0.name == queryParam })?.value
+extension String {
+    
+    /// Converts an ISO8601 string to a date
+    var isoDate: Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        return formatter.date(from: self) ?? Date()
     }
+    
+}
+
+// MARK: Date
+
+extension Date {
+    
+    /// Returns month component
+    var month: Int {
+        Calendar.current.component(.month, from: self)
+    }
+    
 }
 
 // MARK: Double
@@ -63,16 +77,13 @@ extension Int {
     
 }
 
+// MARK: URL
 
-// MARK: String
-
-extension String {
-    
-    /// Converts an ISO8601 string to a date
-    var isoDate: Date {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        return formatter.date(from: self) ?? Date()
+extension URL {
+    /// Ability to check query params via a subscript
+    subscript(queryParam: String) -> String? {
+        guard let url = URLComponents(string: self.absoluteString) else { return nil }
+        return url.queryItems?.first(where: { $0.name == queryParam })?.value
     }
-    
 }
+

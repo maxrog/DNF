@@ -84,11 +84,18 @@ extension StravaNetworkDispatch {
         }
         
         let (data, _) = try await URLSession.shared.data(for: urlRequest)
-        let activities = try JSONDecoder().decode([StravaActivity].self, from: data)
-        var filteredActivities = activities.filter { $0.sportType == StravaAPIConfiguration.mainActivityType }
-        filteredActivities = filteredActivities.sorted(by: { $0.startDate > $1.startDate })
-        let activityData = StravaActivityData(allActivities: filteredActivities)
+        var activities = try JSONDecoder().decode([StravaActivity].self, from: data)
+        activities = activities.sorted(by: { $0.startDate > $1.startDate })
+        let runActivities = activities.filter { $0.sportType == StravaAPIConfiguration.runActivityType }
+        let hikeActivities = activities.filter {
+            $0.sportType == StravaAPIConfiguration.hikeActivityType
+            ||
+            $0.sportType == StravaAPIConfiguration.walkActivityType
+        }
         
+        let activityData = StravaActivityData(allActivities: activities, runActivities: runActivities, hikeActivities: hikeActivities)
+        
+        DNFLogger.log(.action, "Fetched athlete activities", sender: String(describing: self))
         return activityData
     }
     
