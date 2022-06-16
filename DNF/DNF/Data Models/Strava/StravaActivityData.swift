@@ -19,7 +19,20 @@ struct StravaActivityData {
 
     /// The most recent activity
     var featuredActivity: StravaActivity? {
-        allActivities.first
+        let firstRun = runActivities.first
+        let firstHike = hikeActivities.first
+        
+        // if have no hike, return run
+        guard let hike = firstHike else {
+            return firstRun
+        }
+        // if no run return first hike
+        guard let run = firstRun else {
+            return firstHike
+        }
+        
+        // return longest of two
+        return run.distance > hike.distance ? run : hike
     }
     
 }
