@@ -14,7 +14,7 @@ struct ProfileView: View {
     
     var body: some View {
         DNFLoadingView({
-            VStack(spacing: 12) {
+            Form {
                 AsyncImage(url: URL(string: profileViewModel.athlete?.profile ?? "")) { image in
                     image.resizable()
                 } placeholder: {
@@ -24,8 +24,7 @@ struct ProfileView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 25))
                 
                 
-                Text(profileViewModel.athlete?.firstname ?? "-")
-                Text(profileViewModel.athlete?.lastname ?? "-")
+                Text("\(profileViewModel.athlete?.firstname ?? "-") \(profileViewModel.athlete?.lastname ?? "-")")
                 Button {
                     authViewModel.signOut()
                 } label: {
