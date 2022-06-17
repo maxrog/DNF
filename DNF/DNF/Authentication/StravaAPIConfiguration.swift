@@ -20,15 +20,6 @@ class StravaAPIConfiguration {
     var APIKey: String
     var redirect: String
     
-    var athleteId: String {
-        guard let id = tokenData?.athleteId else {
-            let message = "Missing athlete ID"
-            DNFLogger.log(.fatal, message, sender: String(describing: self))
-            return ""
-        }
-        return "\(id)"
-    }
-    
     private init() {
         let stravaPlist = FileManager.plist(named: "NetworkConfiguration", childName: "Strava")
         self.baseUrl = stravaPlist["StravaBaseUrl"] as? String ?? ""
@@ -43,6 +34,9 @@ class StravaAPIConfiguration {
         }
         set {
             KeychainManager.shared.save(newValue, account: .strava)
+            if let athlete = newValue?.athlete {
+                self.athlete = athlete
+            }
         }
     }
     
@@ -59,9 +53,45 @@ extension StravaAPIConfiguration {
     
     // To redirect straight to app instead of website, this was what Strava API requires...
     static let authRedirectUrlScheme = "myapp"
+    static let athleteUDKey = "rogers.max.DNF.app.athleteKey"
     
     static let runActivityType = "Run"
     static let hikeActivityType = "Hike"
     static let walkActivityType = "Walk"
+    
+}
+
+// MARK: Athlete
+
+// We will save Athlete data separately because it comes with first auth token call but not on subsequent refresh's.
+// This means once we refresh and it's nil, the keychain object overrides it with nil, causing a missing athlete
+
+extension StravaAPIConfiguration {
+    
+    var athlete: StravaAthleteData? {
+        get {
+            if let data = UserDefaults.standard.object(forKey: StravaAPIConfiguration.athleteUDKey) as? Data,
+               let athlete = try? JSONDecoder().decode(StravaAthleteData.self, from: data) {
+                return athlete
+            } else {
+                return nil
+            }
+        }
+        set {
+            if let data = try? JSONEncoder().encode(newValue) {
+                UserDefaults.standard.set(data, forKey: StravaAPIConfiguration.athleteUDKey)
+            }
+        }
+    }
+    
+    var athleteId: String {
+        guard let id = self.athlete?.id else {
+            let message = "Missing athlete ID"
+            DNFLogger.log(.fatal, message, sender: String(describing: self))
+            return ""
+        }
+        return "\(id)"
+    }
+    
     
 }

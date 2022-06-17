@@ -22,11 +22,6 @@ struct StravaTokenData: Codable {
         case athlete
     }
     
-    var athleteId: String? {
-        guard let athlete = athlete else { return nil }
-        return "\(athlete.id)"
-    }
-    
     var isValid: Bool {
         let currentDate = Date()
         let expireDate = Date(timeIntervalSince1970: TimeInterval(expiresAt))
