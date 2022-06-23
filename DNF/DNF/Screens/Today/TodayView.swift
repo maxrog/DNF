@@ -17,6 +17,7 @@ struct TodayView: View {
     var body: some View {
         DNFLoadingView({
             VStack(spacing: 12) {
+                DNFMapView()
                 Text(featuredActivity?.name ?? "")
                     .font(.title)
                 Text(featuredActivity?.startDate.formatted(date: .abbreviated, time: .shortened) ?? "")
