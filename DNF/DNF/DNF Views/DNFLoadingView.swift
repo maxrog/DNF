@@ -42,9 +42,9 @@ struct DNFLoadingView<Content: View>: View {
                         Image(systemName: "tortoise.fill")
                         Image(systemName: "tortoise.fill")
                         Spacer()
-                        Text("\(error.localizedDescription)")
-                            .font(.title)
                     }
+                    Text("\(error.localizedDescription)")
+                        .font(.title)
                 }.onTapGesture {
                     errorViewModel.error = error
                 }
