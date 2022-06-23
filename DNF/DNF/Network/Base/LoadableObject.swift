@@ -22,8 +22,23 @@ class LoadableObject: ObservableObject {
     
 }
 
-enum LoadingState {
+enum LoadingState: Equatable {
+    
     case loading
     case failed(Error)
     case complete
+    case idle
+    
+    static func == (lhs: LoadingState, rhs: LoadingState) -> Bool {
+        switch (lhs, rhs) {
+        case (.loading, .loading):
+            return true
+        case (.complete, .complete):
+            return true
+        case (.idle, .idle):
+            return true
+        default:
+            return false
+        }
+    }
 }
