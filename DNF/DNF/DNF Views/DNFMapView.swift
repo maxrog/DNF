@@ -8,6 +8,11 @@
 import SwiftUI
 import MapKit
 
+/*
+ A map view that is used to show activity visualizations
+ TODO Eventually port to SwiftUI Map once has all the full features as MKMapView
+ */
+
 struct DNFMapView: View {
     
     @State private var region = MKCoordinateRegion(

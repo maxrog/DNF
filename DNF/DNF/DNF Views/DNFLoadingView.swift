@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+/*
+ A loading view that will handle the load cycle with shared acitivity spinners, error and idle screens.
+ */
+
 struct DNFLoadingView<Content: View>: View {
     
 //    TODO why did we need to set this to observedOBject (apparently recreated each time view is destroyed) instead of state object? Also check to make sure duplicate requests aren't firing off
