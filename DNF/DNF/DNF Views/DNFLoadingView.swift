@@ -74,9 +74,7 @@ struct DNFLoadingView<Content: View>: View {
         
         .if(viewModel.loadingState == .idle) { view in
             view.refreshable {
-                Task {
-                    await viewModel.load
-                }
+                await viewModel.load()
             }
         }
     }
