@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "polyline",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/raphaelmor/Polyline.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "554a15b15ff33cf6757f4cb693c5c285fe58694e"
+      }
+    }
+  ],
+  "version" : 2
+}

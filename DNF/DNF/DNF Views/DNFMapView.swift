@@ -15,20 +15,25 @@ import MapKit
 
 struct DNFMapView: View {
     
-    @State private var region = MKCoordinateRegion(
-        // Apple Park
-        center: CLLocationCoordinate2D(latitude: 37.334803, longitude: -122.008965),
-        span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-    )
+    @State var region: MKCoordinateRegion
     
-    @State private var lineCoordinates = [
-        // Steve Jobs theatre
-        CLLocationCoordinate2D(latitude: 37.330828, longitude: -122.007495),
-        // Caffè Macs
-        CLLocationCoordinate2D(latitude: 37.336083, longitude: -122.007356),
-        // Apple wellness center
-        CLLocationCoordinate2D(latitude: 37.336901, longitude:  -122.012345)
-    ];
+//    @State private var region: MKCoordinateRegion = MKCoordinateRegion(
+//        // Apple Park
+//        center: CLLocationCoordinate2D(latitude: 37.334803, longitude: -122.008965),
+//        span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+//    )
+    
+    @State var lineCoordinates: [CLLocationCoordinate2D]
+    
+//    @State private var lineCoordinates = [
+//        // Steve Jobs theatre
+//        CLLocationCoordinate2D(latitude: 37.330828, longitude: -122.007495),
+//        // Caffè Macs
+//        CLLocationCoordinate2D(latitude: 37.336083, longitude: -122.007356),
+//        // Apple wellness center
+//        CLLocationCoordinate2D(latitude: 37.336901, longitude:  -122.012345)
+//    ];
+    
     
     var body: some View {
         MapView(region: region, lineCoordinates: lineCoordinates)
@@ -37,7 +42,20 @@ struct DNFMapView: View {
 
 struct DNFMapView_Previews: PreviewProvider {
     static var previews: some View {
-        DNFMapView()
+        DNFMapView(
+            region: MKCoordinateRegion(
+                // Apple Park
+                center: CLLocationCoordinate2D(latitude: 37.334803, longitude: -122.008965),
+                span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+            ),
+            lineCoordinates: [
+                // Steve Jobs theatre
+                CLLocationCoordinate2D(latitude: 37.330828, longitude: -122.007495),
+                // Caffè Macs
+                CLLocationCoordinate2D(latitude: 37.336083, longitude: -122.007356),
+                // Apple wellness center
+                CLLocationCoordinate2D(latitude: 37.336901, longitude:  -122.012345)
+            ])
     }
 }
 

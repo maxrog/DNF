@@ -45,6 +45,7 @@
 		AF8626BA2856A1730079D911 /* StravaAthleteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8626B92856A1730079D911 /* StravaAthleteData.swift */; };
 		AF9228CE285B5B4F000CFA03 /* HikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9228CD285B5B4F000CFA03 /* HikeView.swift */; };
 		AF9789BC28520F98003BD82F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9789BB28520F98003BD82F /* Endpoint.swift */; };
+		AFBD40A8286514FF00117D9F /* Polyline in Frameworks */ = {isa = PBXBuildFile; productRef = AFBD40A7286514FF00117D9F /* Polyline */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFBD40A8286514FF00117D9F /* Polyline in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +325,9 @@
 			dependencies = (
 			);
 			name = DNF;
+			packageProductDependencies = (
+				AFBD40A7286514FF00117D9F /* Polyline */,
+			);
 			productName = DNF;
 			productReference = AF717BD42851759F0011D0EE /* DNF.app */;
 			productType = "com.apple.product-type.application";
@@ -351,6 +356,9 @@
 				Base,
 			);
 			mainGroup = AF717BCB2851759F0011D0EE;
+			packageReferences = (
+				AFBD40A6286514FF00117D9F /* XCRemoteSwiftPackageReference "Polyline" */,
+			);
 			productRefGroup = AF717BD52851759F0011D0EE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -617,6 +625,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AFBD40A6286514FF00117D9F /* XCRemoteSwiftPackageReference "Polyline" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/raphaelmor/Polyline.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AFBD40A7286514FF00117D9F /* Polyline */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AFBD40A6286514FF00117D9F /* XCRemoteSwiftPackageReference "Polyline" */;
+			productName = Polyline;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AF717BCC2851759F0011D0EE /* Project object */;
 }

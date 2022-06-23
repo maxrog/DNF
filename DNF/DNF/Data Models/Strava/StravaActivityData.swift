@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import MapKit
+import Polyline
 
 struct StravaActivityData {
     /// All of the past <= 200 activities
@@ -80,6 +82,14 @@ struct StravaActivity: Codable, Identifiable {
     public var elevationGain: Int {
         _totalElevationGain.metersToFeetValue
     }
+    /// The region to show in our DNFMapView
+    public var mapRegion: MKCoordinateRegion? {
+        guard startLatlng.indices.contains(0),
+              startLatlng.indices.contains(1) else { return nil }
+        return MKCoordinateRegion(
+             center: CLLocationCoordinate2D(latitude: startLatlng[0], longitude: startLatlng[1]),
+             span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+    }
     
     enum CodingKeys: String, CodingKey {
         case id, name, type
@@ -113,11 +123,24 @@ struct StravaActivity: Codable, Identifiable {
 
 struct Map: Codable {
     let id: String
-    let summaryPolyline: String
+    let summaryPolyline: String?
+    let polyline: String?
     let resourceState: Int
+    
+    /// The polyline coordinates to show in our DNFMapView
+    public var lineCoordinates: [CLLocationCoordinate2D] {
+        let encodedPolyline = polyline ?? summaryPolyline
+        guard let encodedPolyline = encodedPolyline else {
+            return []
+        }
+        let decodedPolyline = Polyline.init(encodedPolyline: encodedPolyline)
+        guard let polyCoords = decodedPolyline.coordinates else { return [] }
+        return polyCoords.map { CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)}
+    }
 
     enum CodingKeys: String, CodingKey {
         case id
+        case polyline
         case summaryPolyline = "summary_polyline"
         case resourceState = "resource_state"
     }
