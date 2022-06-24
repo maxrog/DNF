@@ -13,7 +13,6 @@ import SwiftUI
 
 struct DNFLoadingView<Content: View>: View {
     
-//    TODO why did we need to set this to observedOBject (apparently recreated each time view is destroyed) instead of state object? Also check to make sure duplicate requests aren't firing off
     @ObservedObject var viewModel: LoadableObject
     let loadedContent: Content
     
@@ -73,6 +72,8 @@ struct DNFLoadingView<Content: View>: View {
         })
         
         .if(viewModel.loadingState == .idle) { view in
+//        TODO    refreshable only works for lists. check this out to add to this view;
+//        https://stackoverflow.com/a/72453592
             view.refreshable {
                 await viewModel.load()
             }

@@ -40,6 +40,7 @@ struct StravaActivityData {
 }
 
 // TODO clean this up / documentation
+// TODO when we get activity detail we reuse this data model but a lot more info is available if want to add it at some point
 struct StravaActivity: Codable, Identifiable {
     let id: Int
     let name: String

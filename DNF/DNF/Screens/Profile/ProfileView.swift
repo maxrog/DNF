@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ProfileView: View {
-//    TODO if keep switching tabs it errors out. figure out why. maybe need charles. or reset loading state on task load time?
     @EnvironmentObject var authViewModel: AuthStateViewModel
     @StateObject var profileViewModel = ProfileViewModel()
     
