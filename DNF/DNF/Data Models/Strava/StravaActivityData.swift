@@ -89,7 +89,7 @@ struct StravaActivity: Codable, Identifiable {
               startLatlng.indices.contains(1) else { return nil }
         return MKCoordinateRegion(
              center: CLLocationCoordinate2D(latitude: startLatlng[0], longitude: startLatlng[1]),
-             span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+             span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
     }
     
     enum CodingKeys: String, CodingKey {

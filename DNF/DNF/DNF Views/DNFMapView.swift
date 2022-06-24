@@ -98,7 +98,7 @@ private class Coordinator: NSObject, MKMapViewDelegate {
         if let routePolyline = overlay as? MKPolyline {
             let renderer = MKPolylineRenderer(polyline: routePolyline)
             renderer.strokeColor = UIColor.systemBlue
-            renderer.lineWidth = 10
+            renderer.lineWidth = 4
             return renderer
         }
         return MKOverlayRenderer()
