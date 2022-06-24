@@ -101,4 +101,18 @@ extension StravaNetworkDispatch {
         return activityData
     }
     
+    static func fetchAthleteActivity(withId id: String?) async throws -> StravaActivity {
+        let athleteEndpoint = StravaActivityEndpoint(type: .detail, id: id)
+        
+        guard let urlRequest = try await athleteEndpoint.authorizedRequest() else {
+            throw RequestError.missingToken
+        }
+        
+        let (data, _) = try await URLSession.shared.data(for: urlRequest)
+        let activity = try JSONDecoder().decode(StravaActivity.self, from: data)
+        
+        DNFLogger.log(.action, "Fetched activity with id: \(id ?? "")", sender: String(describing: self))
+        return activity
+    }
+    
 }

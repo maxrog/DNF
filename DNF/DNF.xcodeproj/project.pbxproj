@@ -46,6 +46,7 @@
 		AF9228CE285B5B4F000CFA03 /* HikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9228CD285B5B4F000CFA03 /* HikeView.swift */; };
 		AF9789BC28520F98003BD82F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9789BB28520F98003BD82F /* Endpoint.swift */; };
 		AFBD40A8286514FF00117D9F /* Polyline in Frameworks */ = {isa = PBXBuildFile; productRef = AFBD40A7286514FF00117D9F /* Polyline */; };
+		AFBD40AA28651C6400117D9F /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBD40A928651C6400117D9F /* TodayViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		AF8626B92856A1730079D911 /* StravaAthleteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaAthleteData.swift; sourceTree = "<group>"; };
 		AF9228CD285B5B4F000CFA03 /* HikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikeView.swift; sourceTree = "<group>"; };
 		AF9789BB28520F98003BD82F /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		AFBD40A928651C6400117D9F /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				AF7037432857E71400563BB8 /* TodayView.swift */,
+				AFBD40A928651C6400117D9F /* TodayViewModel.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				AF9228CE285B5B4F000CFA03 /* HikeView.swift in Sources */,
 				AF7037502858BD3000563BB8 /* ActivityViewModel.swift in Sources */,
 				AF8467502852CA4F009FAD23 /* DNFLogger.swift in Sources */,
+				AFBD40AA28651C6400117D9F /* TodayViewModel.swift in Sources */,
 				AF4D756028576A89001A27EE /* ProfileViewModel.swift in Sources */,
 				AF458475285E025B007C7834 /* ErrorViewModel.swift in Sources */,
 				AF846754285362EA009FAD23 /* AuthManager.swift in Sources */,

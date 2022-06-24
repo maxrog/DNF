@@ -10,13 +10,19 @@ import Foundation
 struct StravaActivityEndpoint: Endpoint {
 
     let type: StravaActivityRequestType
+    let id: String?
+    
+    init(type: StravaActivityRequestType, id: String? = nil) {
+        self.type = type
+        self.id = id
+    }
     
     var path: String {
         switch type {
         case .list:
             return "/athlete/activities"
-        case .stream:
-            return "/activities/\(StravaAPIConfiguration.runActivityType)/streams"
+        case .detail:
+            return "/activities/\(id ?? "")"
         }
     }
     
@@ -24,8 +30,8 @@ struct StravaActivityEndpoint: Endpoint {
         switch type {
         case.list:
             return ["per_page" : "200"]
-        case .stream:
-            return nil
+        case .detail:
+            return ["include_all_efforts" : "true"]
         }
     }
     var headers: [String : String]?
@@ -34,6 +40,6 @@ struct StravaActivityEndpoint: Endpoint {
 }
 
 enum StravaActivityRequestType {
-    case list, stream
+    case list, detail
 }
 

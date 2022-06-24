@@ -12,10 +12,14 @@ struct MainTabView: View {
     // Main Tab Environment Objects
     /// The athelete's list of activities
     @StateObject var activityViewModel = ActivityViewModel()
+    private var featuredActivityId: String? {
+        guard let id = activityViewModel.activityData?.featuredActivity?.id else { return nil }
+        return "\(id)"
+    }
     
     var body: some View {
         TabView {
-            TodayView()
+            TodayView(todayViewModel: TodayViewModel(activityId: featuredActivityId))
                 .tabItem {
                     Image(systemName: "gauge")
                 }

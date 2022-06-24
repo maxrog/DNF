@@ -9,32 +9,33 @@ import SwiftUI
 
 struct TodayView: View {
     
-    @EnvironmentObject var activityViewModel: ActivityViewModel
-    private var featuredActivity: StravaActivity? {
-        activityViewModel.activityData?.featuredActivity
+    @ObservedObject var todayViewModel: TodayViewModel
+    var activity: StravaActivity? {
+        todayViewModel.activity
     }
-    
+
     var body: some View {
-        DNFLoadingView({
-            VStack(spacing: 12) {
-                if let region = featuredActivity?.mapRegion,
-                   let coordinates = featuredActivity?.map.lineCoordinates {
-                    DNFMapView(region: region, lineCoordinates: coordinates)
+            DNFLoadingView({
+                VStack(spacing: 12) {
+                    if let region = activity?.mapRegion,
+                       let coordinates = activity?.map.lineCoordinates {
+                        DNFMapView(region: region, lineCoordinates: coordinates)
+                    }
+                    Text(activity?.name ?? "")
+                        .font(.title)
+                    Text(activity?.startDate.formatted(date: .abbreviated, time: .shortened) ?? "")
+                    Text("Miles: \(activity?.distance ?? 0.0)")
+                    Text("Time On Feet: \(activity?.elapsedTime ?? "")")
+                    Text("Elevation Gain: \(activity?.elevationGain ?? 0) ft")
                 }
-                Text(featuredActivity?.name ?? "")
-                    .font(.title)
-                Text(featuredActivity?.startDate.formatted(date: .abbreviated, time: .shortened) ?? "")
-                Text("Miles: \(featuredActivity?.distance ?? 0.0)")
-                Text("Time On Feet: \(featuredActivity?.elapsedTime ?? "")")
-                Text("Elevation Gain: \(featuredActivity?.elevationGain ?? 0) ft")
-            }
-        }, viewModel: activityViewModel)
+            }, viewModel: todayViewModel)
+        }
     }
     
 }
 
 struct TodayView_Previews: PreviewProvider {
     static var previews: some View {
-        TodayView()
+        TodayView(todayViewModel: .init(activityId: nil))
     }
 }
