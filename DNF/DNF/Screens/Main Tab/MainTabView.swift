@@ -18,28 +18,27 @@ struct MainTabView: View {
     }
     
     var body: some View {
-        TabView {
-            TodayView(todayViewModel: TodayViewModel(activityId: featuredActivityId))
-                .tabItem {
-                    Image(systemName: "gauge")
-                }
-            StatsView()
-                .tabItem {
-                    Image(systemName: "star.fill")
-                }
-            HikeView()
-                .tabItem {
-                    Image(systemName: "pawprint.circle.fill")
-                }
-            ProfileView()
-                .tabItem {
-                    Image(systemName: "lanyardcard.fill")
-                }
-        }
-        .task {
-            await activityViewModel.load()
-        }
-        .environmentObject(activityViewModel)
+        DNFLoadingView({
+            TabView {
+                TodayView(todayViewModel: TodayViewModel(activityId: featuredActivityId))
+                    .tabItem {
+                        Image(systemName: "gauge")
+                    }
+                StatsView()
+                    .tabItem {
+                        Image(systemName: "star.fill")
+                    }
+                HikeView()
+                    .tabItem {
+                        Image(systemName: "pawprint.circle.fill")
+                    }
+                ProfileView()
+                    .tabItem {
+                        Image(systemName: "lanyardcard.fill")
+                    }
+            }
+            .environmentObject(activityViewModel)
+        }, viewModel: activityViewModel)
     }
     
 }

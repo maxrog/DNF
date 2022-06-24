@@ -9,27 +9,26 @@ import SwiftUI
 
 struct TodayView: View {
     
-    @ObservedObject var todayViewModel: TodayViewModel
+    @StateObject var todayViewModel: TodayViewModel
     var activity: StravaActivity? {
         todayViewModel.activity
     }
 
     var body: some View {
-            DNFLoadingView({
-                VStack(spacing: 12) {
-                    if let region = activity?.mapRegion,
-                       let coordinates = activity?.map.lineCoordinates {
-                        DNFMapView(region: region, lineCoordinates: coordinates)
-                    }
-                    Text(activity?.name ?? "")
-                        .font(.title)
-                    Text(activity?.startDate.formatted(date: .abbreviated, time: .shortened) ?? "")
-                    Text("Miles: \(activity?.distance ?? 0.0)")
-                    Text("Time On Feet: \(activity?.elapsedTime ?? "")")
-                    Text("Elevation Gain: \(activity?.elevationGain ?? 0) ft")
+        DNFLoadingView({
+            VStack(spacing: 12) {
+                if let region = activity?.mapRegion,
+                   let coordinates = activity?.map.lineCoordinates {
+                    DNFMapView(region: region, lineCoordinates: coordinates)
                 }
-            }, viewModel: todayViewModel)
-        }
+                Text(activity?.name ?? "")
+                    .font(.title)
+                Text(activity?.startDate.formatted(date: .abbreviated, time: .shortened) ?? "")
+                Text("Miles: \(activity?.distance ?? 0.0)")
+                Text("Time On Feet: \(activity?.elapsedTime ?? "")")
+                Text("Elevation Gain: \(activity?.elevationGain ?? 0) ft")
+            }
+        }, viewModel: todayViewModel)
     }
     
 }
