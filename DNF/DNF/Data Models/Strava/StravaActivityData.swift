@@ -41,9 +41,18 @@ struct StravaActivityData {
 
 // TODO clean this up / documentation
 // TODO when we get activity detail we reuse this data model but a lot more info is available if want to add it at some point
-struct StravaActivity: Codable, Identifiable {
+struct StravaActivity: Codable, Identifiable, Hashable {
+    
     let id: Int
     let name: String
+    
+    static func == (lhs: StravaActivity, rhs: StravaActivity) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
     
     let type, sportType: String
     let photoCount: Int

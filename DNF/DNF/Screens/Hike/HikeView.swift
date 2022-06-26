@@ -7,24 +7,37 @@
 
 import SwiftUI
 
+// TODO probably create a list that you tap to go into more detail and load activity similar to today view (maybe even reuse view)
+
 struct HikeView: View {
     
     @EnvironmentObject var activityViewModel: ActivityViewModel
     private var monthlyHikes: [StravaActivity] {
         activityViewModel.activityData?.hikeActivities.filter( { Date().month == $0.startDate.month } ) ?? []
     }
+    @State private var selectedHike: StravaActivity?
     
     var body: some View {
         DNFLoadingView({
-            Text("June")
-            Text("Distance:")
-            Text("Elevation gain:")
-            List(monthlyHikes) { hike in
-                Text(hike.startDate.formatted(date: .abbreviated, time: .shortened))
-                Text(hike.name)
-                Text("Elevation Gain: \(hike.elevationGain)")
-                Text("Elevation Low: \(hike.elevLow)")
-                Text("Elevation High: \(hike.elevHigh)")
+            NavigationView {
+                VStack {
+                    Text("Distance:")
+                    Text("Elevation gain:")
+                    List(monthlyHikes, selection: $selectedHike) { hike in
+                            NavigationLink(destination: TodayView(todayViewModel: TodayViewModel(activityId: hike.id.stringValue))) {
+                                VStack {
+                                    Text(hike.startDate.formatted(date: .abbreviated, time: .shortened))
+                                    Text(hike.name)
+                                    Text("Distance: \(hike.distanceUI)")
+                                    Text("Elevation Gain: \(hike.elevationGain)")
+                                    Text("Elevation Low: \(hike.elevLow)")
+                                    Text("Elevation High: \(hike.elevHigh)")
+                                }
+                            }
+                    }
+                    .lineSpacing(8)
+                }
+                .navigationTitle("June")
             }
         }, viewModel: activityViewModel)
     }
