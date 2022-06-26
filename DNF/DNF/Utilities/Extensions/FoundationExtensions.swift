@@ -50,6 +50,11 @@ extension Double {
         return (self / 1609.34).rounded(toPlaces: 2)
     }
     
+    /// Converts a value in meters to miles and returns a string
+    var metersToMilesStringValue: String {
+        String(format: "%.2f", self.metersToMilesValue)
+    }
+    
 }
 
 // MARK: Int
@@ -66,6 +71,11 @@ extension Int {
         formatter.zeroFormattingBehavior = [.pad]
         
         return formatter.string(from: TimeInterval(self)) ?? ""
+    }
+    
+    /// Converts int to string value
+    var stringValue: String {
+        "\(self)"
     }
     
     // MARK: Unit Conversion

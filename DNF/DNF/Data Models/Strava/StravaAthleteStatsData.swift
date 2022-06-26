@@ -34,12 +34,14 @@ struct StravaStatTotals: Codable {
     public var distance: Double {
         _distance.metersToMilesValue
     }
-    
+    /// The distance ran, in miles in UI format
+    public var distanceUI: String {
+        _distance.metersToMilesStringValue
+    }
     /// The elapsed time, neatly formatted
     public var elapsedTime: String {
         _elapsedTime.hhmmssStringValue
     }
-    
     /// The elevation gain, in feet
     public var elevationGain: Int {
         _elevationGain.metersToFeetValue

@@ -19,7 +19,7 @@ struct StatsView: View {
                     Text("Recent")
                         .font(.title)
                     Text("Count: \(statsViewModel.stats?.recentRunTotals?.count ?? 0)")
-                    Text("Distance: \(statsViewModel.stats?.recentRunTotals?.distance ?? 0)")
+                    Text("Distance: \(statsViewModel.stats?.recentRunTotals?.distanceUI ?? "")")
                     Text("Time On Feet: \(statsViewModel.stats?.recentRunTotals?.elapsedTime ?? "")")
                 }
                 Spacer()
@@ -27,7 +27,7 @@ struct StatsView: View {
                     Text("YTD")
                         .font(.title)
                     Text("Count: \(statsViewModel.stats?.ytdRunTotals?.count ?? 0)")
-                    Text("Distance: \(statsViewModel.stats?.ytdRunTotals?.distance ?? 0)")
+                    Text("Distance: \(statsViewModel.stats?.ytdRunTotals?.distanceUI ?? "")")
                     Text("Time On Feet: \(statsViewModel.stats?.ytdRunTotals?.elapsedTime ?? "")")
                 }
                 Spacer()
@@ -35,7 +35,7 @@ struct StatsView: View {
                     Text("All")
                         .font(.title)
                     Text("Count: \(statsViewModel.stats?.allRunTotals?.count ?? 0)")
-                    Text("Distance: \(statsViewModel.stats?.allRunTotals?.distance ?? 0)")
+                    Text("Distance: \(statsViewModel.stats?.allRunTotals?.distanceUI ?? "")")
                     Text("Time On Feet: \(statsViewModel.stats?.allRunTotals?.elapsedTime ?? "")")
                 }
                 Spacer()

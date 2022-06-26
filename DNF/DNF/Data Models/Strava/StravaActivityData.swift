@@ -69,16 +69,20 @@ struct StravaActivity: Codable, Identifiable, Hashable {
     let prCount: Int
     
     // To be processed, raw values
-    let _distance: Double
-    let _elapsedTime: Int
-    let _startDate: String
-    let _totalElevationGain: Int
+    private let _distance: Double
+    private let _elapsedTime: Int
+    private let _startDate: String
+    private let _totalElevationGain: Int
     
     // Public computed variables
     
     /// The distance ran, in miles
     public var distance: Double {
         _distance.metersToMilesValue
+    }
+    /// The distance ran, in miles in UI format
+    public var distanceUI: String {
+        _distance.metersToMilesStringValue
     }
     /// The elapsed time, neatly formatted
     public var elapsedTime: String {

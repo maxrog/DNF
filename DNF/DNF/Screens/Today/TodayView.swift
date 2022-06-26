@@ -24,7 +24,7 @@ struct TodayView: View {
                 Text(activity?.name ?? "")
                     .font(.title)
                 Text(activity?.startDate.formatted(date: .abbreviated, time: .shortened) ?? "")
-                Text("Miles: \(activity?.distance ?? 0.0)")
+                Text("Miles: \(activity?.distanceUI ?? "")")
                 Text("Time On Feet: \(activity?.elapsedTime ?? "")")
                 Text("Elevation Gain: \(activity?.elevationGain ?? 0) ft")
             }

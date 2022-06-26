@@ -13,11 +13,11 @@ struct MainTabView: View {
     /// The athelete's list of activities
     @StateObject var activityViewModel = ActivityViewModel()
     private var featuredActivityId: String? {
-        guard let id = activityViewModel.activityData?.featuredActivity?.id else { return nil }
-        return "\(id)"
+        activityViewModel.activityData?.featuredActivity?.id.stringValue
     }
     
     var body: some View {
+        // TODO make special loading screen for main tab view since it's like launch screen 
         DNFLoadingView({
             TabView {
                 TodayView(todayViewModel: TodayViewModel(activityId: featuredActivityId))
