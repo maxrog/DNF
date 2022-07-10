@@ -32,7 +32,7 @@ extension AuthTokenManager {
             return true
         } catch {
             let message = error.localizedDescription
-            DNFLogger.log(.error, message, sender: String(describing: self))
+            DNFLogger.log(.error, message, sender: String(describing: self), verbose: "Error handling strava OAuth callback")
             throw error
         }
     }

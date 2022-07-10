@@ -9,7 +9,10 @@ import UIKit
 
 struct DNFLogger {
     
-    static func log(_ logType: DNFLogType, _ message: String, sender: String) {
+    static var logLevel: DNFLogLevel  = .verbose
+    
+    static func log(_ logType: DNFLogType, _ message: String, sender: String, verbose: String? = nil) {
+        guard logLevel != .none else { return }
         switch logType {
         case .error:
             debugPrint("📕 Error: \(message) \(sender)")
@@ -24,15 +27,22 @@ struct DNFLogger {
         case .canceled:
             debugPrint("📓 Cancelled: \(message) \(sender)")
         }
+        if let verbose = verbose, logLevel == .verbose {
+            debugPrint("\(sender) \n \(verbose)")
+        }
     }
     
 }
 
-enum DNFLogType: String{
+enum DNFLogType: String {
     case error
     case fatal
     case warning
     case success
     case action
     case canceled
+}
+
+enum DNFLogLevel {
+    case none, standard, verbose
 }

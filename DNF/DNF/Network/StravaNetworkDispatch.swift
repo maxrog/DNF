@@ -58,7 +58,10 @@ extension StravaNetworkDispatch {
         let (data, _) = try await URLSession.shared.data(for: urlRequest)
         let athleteInfo = try JSONDecoder().decode(StravaAthleteData.self, from: data)
         
-        DNFLogger.log(.action, "Fetched athlete info", sender: String(describing: self))
+        DNFLogger.log(.action,
+                      "Fetched athlete info",
+                      sender: String(describing: self),
+                      verbose: String(data: data, encoding: String.Encoding.utf8))
         return athleteInfo
     }
    
@@ -72,7 +75,10 @@ extension StravaNetworkDispatch {
         let (data, _) = try await URLSession.shared.data(for: urlRequest)
         let athleteStats = try JSONDecoder().decode(StravaAthleteStatsData.self, from: data)
         
-        DNFLogger.log(.action, "Fetched athlete stats", sender: String(describing: self))
+        DNFLogger.log(.action,
+                      "Fetched athlete stats",
+                      sender: String(describing: self),
+                      verbose: String(data: data, encoding: String.Encoding.utf8))
         return athleteStats
     }
     
@@ -97,7 +103,9 @@ extension StravaNetworkDispatch {
         
         let activityData = StravaActivityData(allActivities: activities, runActivities: runActivities, hikeActivities: hikeActivities)
         
-        DNFLogger.log(.action, "Fetched athlete activities", sender: String(describing: self))
+        DNFLogger.log(.action, "Fetched athlete activities",
+                      sender: String(describing: self),
+                      verbose: String(data: data, encoding: String.Encoding.utf8))
         return activityData
     }
     
@@ -110,8 +118,10 @@ extension StravaNetworkDispatch {
         
         let (data, _) = try await URLSession.shared.data(for: urlRequest)
         let activity = try JSONDecoder().decode(StravaActivity.self, from: data)
-        
-        DNFLogger.log(.action, "Fetched activity with id: \(id ?? "")", sender: String(describing: self))
+        DNFLogger.log(.action,
+                      "Fetched activity with id: \(id ?? "")",
+                      sender: String(describing: self),
+                      verbose: String(data: data, encoding: String.Encoding.utf8))
         return activity
     }
     
