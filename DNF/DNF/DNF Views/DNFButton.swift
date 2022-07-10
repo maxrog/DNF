@@ -12,9 +12,9 @@ import SwiftUI
  */
 
 struct DNFButton: View {
-    let title: LocalizedStringKey
+    let title: String
     var body: some View {
-        Text(title)
+        DNFText(title)
             .buttonStyle(.plain)
     }
 }

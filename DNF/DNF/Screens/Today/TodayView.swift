@@ -21,7 +21,7 @@ struct TodayView: View {
         GeometryReader { geo in
             DNFLoadingView({
                 VStack(spacing: 12) {
-                    Text(featuredActivity?.name ?? "")
+                    DNFText(featuredActivity?.name ?? "")
                         .font(.title)
                     if let region = featuredActivity?.mapRegion,
                        let coordinates = featuredActivity?.map?.lineCoordinates {
@@ -29,10 +29,10 @@ struct TodayView: View {
                             .frame(height: geo.size.height / 4)
                             .cornerRadius(12)
                     }
-                    Text(featuredActivity?.startDate.formatted(date: .abbreviated, time: .shortened) ?? "")
-                    Text("Miles: \(featuredActivity?.distanceUI ?? "")")
-                    Text("Time On Feet: \(featuredActivity?.elapsedTime ?? "")")
-                    Text("Elevation Gain: \(featuredActivity?.elevationGain ?? 0) ft")
+                    DNFText(featuredActivity?.startDate.formatted(date: .abbreviated, time: .shortened))
+                    DNFText("Miles: \(featuredActivity?.distanceUI ?? "")")
+                    DNFText("Time On Feet: \(featuredActivity?.elapsedTime ?? "")")
+                    DNFText("Elevation Gain: \(featuredActivity?.elevationGain ?? 0) ft")
                 }.padding()
                 Spacer()
                 

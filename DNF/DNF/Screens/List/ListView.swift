@@ -21,10 +21,10 @@ struct ListView: View {
             List(activityList, selection: $selectedActivity) { activity in
                 NavigationLink(destination: TodayView(todayViewModel: TodayViewModel(activityId: activity.id.stringValue))) {
                     VStack {
-                        Text(activity.startDate.formatted(date: .abbreviated, time: .shortened))
-                        Text(activity.name)
-                        Text("Distance: \(activity.distanceUI)")
-                        Text("Elevation Gain: \(activity.elevationGain)")
+                        DNFText(activity.startDate.formatted(date: .abbreviated, time: .shortened))
+                        DNFText(activity.name)
+                        DNFText("Distance: \(activity.distanceUI)")
+                        DNFText("Elevation Gain: \(activity.elevationGain)")
                     }
                 }
             }

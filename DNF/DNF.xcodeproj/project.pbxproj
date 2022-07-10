@@ -48,6 +48,8 @@
 		AFBD40A8286514FF00117D9F /* Polyline in Frameworks */ = {isa = PBXBuildFile; productRef = AFBD40A7286514FF00117D9F /* Polyline */; };
 		AFBD40AA28651C6400117D9F /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBD40A928651C6400117D9F /* TodayViewModel.swift */; };
 		AFE32444287B51A800BBD23F /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE32443287B51A800BBD23F /* ListView.swift */; };
+		AFE32446287B549B00BBD23F /* DNFPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE32445287B549B00BBD23F /* DNFPreferences.swift */; };
+		AFE32448287B563800BBD23F /* DNFText.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE32447287B563800BBD23F /* DNFText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +95,8 @@
 		AF9789BB28520F98003BD82F /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		AFBD40A928651C6400117D9F /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
 		AFE32443287B51A800BBD23F /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		AFE32445287B549B00BBD23F /* DNFPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNFPreferences.swift; sourceTree = "<group>"; };
+		AFE32447287B563800BBD23F /* DNFText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNFText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +202,7 @@
 			children = (
 				AF84673E28529C33009FAD23 /* FileManager.swift */,
 				AF84674F2852CA4F009FAD23 /* DNFLogger.swift */,
+				AFE32445287B549B00BBD23F /* DNFPreferences.swift */,
 				AF8626A72853DE230079D911 /* Extensions */,
 			);
 			path = Utilities;
@@ -207,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				AF8467412852A83D009FAD23 /* DNFButton.swift */,
+				AFE32447287B563800BBD23F /* DNFText.swift */,
 				AF0FA04C285954F1008317F7 /* DNFLoadingView.swift */,
 				AF4B8BEE2864AE520041B6FC /* DNFMapView.swift */,
 			);
@@ -426,6 +432,7 @@
 				AF4D755B28574D2C001A27EE /* AuthStateViewModel.swift in Sources */,
 				AF8467422852A83D009FAD23 /* DNFButton.swift in Sources */,
 				AF458473285DFE57007C7834 /* ViewExtensions.swift in Sources */,
+				AFE32448287B563800BBD23F /* DNFText.swift in Sources */,
 				AF8626BA2856A1730079D911 /* StravaAthleteData.swift in Sources */,
 				AF0FA04D285954F1008317F7 /* DNFLoadingView.swift in Sources */,
 				AF4D755E28574F5E001A27EE /* ProfileView.swift in Sources */,
@@ -435,6 +442,7 @@
 				AF70373C2857E14700563BB8 /* StravaAthleteStatsData.swift in Sources */,
 				AF84674D2852BE54009FAD23 /* StravaAuthEndpoint.swift in Sources */,
 				AF4B8BEF2864AE520041B6FC /* DNFMapView.swift in Sources */,
+				AFE32446287B549B00BBD23F /* DNFPreferences.swift in Sources */,
 				AF8626A62853DE1D0079D911 /* FoundationExtensions.swift in Sources */,
 				AF8467592853785D009FAD23 /* StravaTokenEndpoint.swift in Sources */,
 			);

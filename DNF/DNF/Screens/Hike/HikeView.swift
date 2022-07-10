@@ -21,17 +21,17 @@ struct HikeView: View {
         DNFLoadingView({
             NavigationView {
                 VStack {
-                    Text("Distance:")
-                    Text("Elevation gain:")
+                    DNFText("Distance:")
+                    DNFText("Elevation gain:")
                     List(monthlyHikes, selection: $selectedHike) { hike in
                             NavigationLink(destination: TodayView(todayViewModel: TodayViewModel(activityId: hike.id.stringValue))) {
                                 VStack {
-                                    Text(hike.startDate.formatted(date: .abbreviated, time: .shortened))
-                                    Text(hike.name)
-                                    Text("Distance: \(hike.distanceUI)")
-                                    Text("Elevation Gain: \(hike.elevationGain)")
-                                    Text("Elevation Low: \(hike.elevLow ?? 0)")
-                                    Text("Elevation High: \(hike.elevHigh ?? 0)")
+                                    DNFText(hike.startDate.formatted(date: .abbreviated, time: .shortened))
+                                    DNFText(hike.name)
+                                    DNFText("Distance: \(hike.distanceUI)")
+                                    DNFText("Elevation Gain: \(hike.elevationGain)")
+                                    DNFText("Elevation Low: \(hike.elevLow ?? 0)")
+                                    DNFText("Elevation High: \(hike.elevHigh ?? 0)")
                                 }
                             }
                     }

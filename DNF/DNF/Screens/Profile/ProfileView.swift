@@ -23,7 +23,7 @@ struct ProfileView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 25))
                 
                 
-                Text("\(profileViewModel.athlete?.firstname ?? "-") \(profileViewModel.athlete?.lastname ?? "-")")
+                DNFText("\(profileViewModel.athlete?.firstname ?? "-") \(profileViewModel.athlete?.lastname ?? "-")")
                 Button {
                     authViewModel.signOut()
                 } label: {

@@ -16,27 +16,28 @@ struct StatsView: View {
             VStack {
                 Spacer()
                 VStack {
-                    Text("Recent")
+                    DNFText("Recent")
                         .font(.title)
-                    Text("Count: \(statsViewModel.stats?.recentRunTotals?.count ?? 0)")
-                    Text("Distance: \(statsViewModel.stats?.recentRunTotals?.distanceUI ?? "")")
-                    Text("Time On Feet: \(statsViewModel.stats?.recentRunTotals?.elapsedTime ?? "")")
+                    DNFText("Count: \(statsViewModel.stats?.recentRunTotals?.count ?? 0)")
+                    DNFText("Distance: \(statsViewModel.stats?.recentRunTotals?.distanceUI ?? "")")
+                    DNFText("Time On Feet: \(statsViewModel.stats?.recentRunTotals?.elapsedTime ?? "")")
+                    DNFText("Last Hard Workout: (Calculate this based on pace/distance? if not supplied...")
                 }
                 Spacer()
                 VStack {
-                    Text("YTD")
+                    DNFText("YTD")
                         .font(.title)
-                    Text("Count: \(statsViewModel.stats?.ytdRunTotals?.count ?? 0)")
-                    Text("Distance: \(statsViewModel.stats?.ytdRunTotals?.distanceUI ?? "")")
-                    Text("Time On Feet: \(statsViewModel.stats?.ytdRunTotals?.elapsedTime ?? "")")
+                    DNFText("Count: \(statsViewModel.stats?.ytdRunTotals?.count ?? 0)")
+                    DNFText("Distance: \(statsViewModel.stats?.ytdRunTotals?.distanceUI ?? "")")
+                    DNFText("Time On Feet: \(statsViewModel.stats?.ytdRunTotals?.elapsedTime ?? "")")
                 }
                 Spacer()
                 VStack {
-                    Text("All")
+                    DNFText("All")
                         .font(.title)
-                    Text("Count: \(statsViewModel.stats?.allRunTotals?.count ?? 0)")
-                    Text("Distance: \(statsViewModel.stats?.allRunTotals?.distanceUI ?? "")")
-                    Text("Time On Feet: \(statsViewModel.stats?.allRunTotals?.elapsedTime ?? "")")
+                    DNFText("Count: \(statsViewModel.stats?.allRunTotals?.count ?? 0)")
+                    DNFText("Distance: \(statsViewModel.stats?.allRunTotals?.distanceUI ?? "")")
+                    DNFText("Time On Feet: \(statsViewModel.stats?.allRunTotals?.elapsedTime ?? "")")
                 }
                 Spacer()
             }
