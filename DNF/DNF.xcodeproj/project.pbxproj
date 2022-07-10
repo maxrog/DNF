@@ -47,6 +47,7 @@
 		AF9789BC28520F98003BD82F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9789BB28520F98003BD82F /* Endpoint.swift */; };
 		AFBD40A8286514FF00117D9F /* Polyline in Frameworks */ = {isa = PBXBuildFile; productRef = AFBD40A7286514FF00117D9F /* Polyline */; };
 		AFBD40AA28651C6400117D9F /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBD40A928651C6400117D9F /* TodayViewModel.swift */; };
+		AFE32444287B51A800BBD23F /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE32443287B51A800BBD23F /* ListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		AF9228CD285B5B4F000CFA03 /* HikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikeView.swift; sourceTree = "<group>"; };
 		AF9789BB28520F98003BD82F /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		AFBD40A928651C6400117D9F /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
+		AFE32443287B51A800BBD23F /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 				AF70374A28589D6600563BB8 /* Stats */,
 				AF9228CA285B5B26000CFA03 /* Hike */,
 				AF4D755C28574F50001A27EE /* Profile */,
+				AFE32442287B518300BBD23F /* List */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -312,6 +315,14 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		AFE32442287B518300BBD23F /* List */ = {
+			isa = PBXGroup;
+			children = (
+				AFE32443287B51A800BBD23F /* ListView.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -400,6 +411,7 @@
 				AFBD40AA28651C6400117D9F /* TodayViewModel.swift in Sources */,
 				AF4D756028576A89001A27EE /* ProfileViewModel.swift in Sources */,
 				AF458475285E025B007C7834 /* ErrorViewModel.swift in Sources */,
+				AFE32444287B51A800BBD23F /* ListView.swift in Sources */,
 				AF846754285362EA009FAD23 /* AuthManager.swift in Sources */,
 				AF70374E28589D9400563BB8 /* StatsViewModel.swift in Sources */,
 				AF7037442857E71400563BB8 /* TodayView.swift in Sources */,
