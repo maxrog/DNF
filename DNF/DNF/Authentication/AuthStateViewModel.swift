@@ -25,6 +25,7 @@ class AuthStateViewModel: ObservableObject {
     
     func signOut() {
         StravaAPIConfiguration.shared.tokenData = nil
+        StravaAPIConfiguration.shared.athlete = nil
         KeychainManager.shared.delete(account: .strava)
         isLoggedIn = false
     }
