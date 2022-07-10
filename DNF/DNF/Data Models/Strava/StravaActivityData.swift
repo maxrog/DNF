@@ -56,7 +56,7 @@ struct StravaActivity: Codable, Identifiable, Hashable {
     
     let type, sportType: String
     let photoCount: Int
-    let map: Map
+    let map: Map?
     let startLatlng, endLatlng: [Double]
     let averageSpeed, maxSpeed, averageCadence, averageWatts: Double?
     let maxWatts, weightedAverageWatts: Int?
@@ -64,37 +64,38 @@ struct StravaActivity: Codable, Identifiable, Hashable {
     let hasHeartrate: Bool
     let averageHeartrate: Double
     let maxHeartrate: Int
-    let elevHigh, elevLow, uploadID: Int
+    let elevHigh, elevLow: Int?
+    let uploadID: Int
     let uploadIDStr, externalID: String
     let prCount: Int
     
     // To be processed, raw values
-    private let _distance: Double
-    private let _elapsedTime: Int
-    private let _startDate: String
-    private let _totalElevationGain: Int
+    private let _distance: Double?
+    private let _elapsedTime: Int?
+    private let _startDate: String?
+    private let _totalElevationGain: Int?
     
     // Public computed variables
     
     /// The distance ran, in miles
     public var distance: Double {
-        _distance.metersToMilesValue
+        _distance?.metersToMilesValue ?? 0
     }
     /// The distance ran, in miles in UI format
     public var distanceUI: String {
-        _distance.metersToMilesStringValue
+        _distance?.metersToMilesStringValue ?? ""
     }
     /// The elapsed time, neatly formatted
     public var elapsedTime: String {
-        _elapsedTime.hhmmssStringValue
+        _elapsedTime?.hhmmssStringValue ?? ""
     }
     /// The date the activity took place
     public var startDate: Date {
-        _startDate.isoDate
+        _startDate?.isoDate ?? Date()
     }
     /// The elevation gain, in feet
     public var elevationGain: Int {
-        _totalElevationGain.metersToFeetValue
+        _totalElevationGain?.metersToFeetValue ?? 0
     }
     /// The region to show in our DNFMapView
     public var mapRegion: MKCoordinateRegion? {
@@ -132,6 +133,38 @@ struct StravaActivity: Codable, Identifiable, Hashable {
         case uploadIDStr = "upload_id_str"
         case externalID = "external_id"
         case prCount = "pr_count"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(Int.self, forKey: .id)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.type = try container.decode(String.self, forKey: .type)
+        self._distance = try container.decodeIfPresent(Double.self, forKey: ._distance)
+        self._elapsedTime = try container.decodeIfPresent(Int.self, forKey: ._elapsedTime)
+        self._startDate = try container.decodeIfPresent(String.self, forKey: ._startDate)
+        self._totalElevationGain = try container.decodeIfPresent(Int.self, forKey: ._totalElevationGain)
+        self.sportType = try container.decode(String.self, forKey: .sportType)
+        self.photoCount = try container.decode(Int.self, forKey: .photoCount)
+        self.map = try container.decodeIfPresent(Map.self, forKey: .map)
+        self.startLatlng = try container.decode([Double].self, forKey: .startLatlng)
+        self.endLatlng = try container.decode([Double].self, forKey: .endLatlng)
+        self.averageSpeed = try container.decodeIfPresent(Double.self, forKey: .averageSpeed)
+        self.maxSpeed = try container.decodeIfPresent(Double.self, forKey: .maxSpeed)
+        self.averageCadence = try container.decodeIfPresent(Double.self, forKey: .averageCadence)
+        self.averageWatts = try container.decodeIfPresent(Double.self, forKey: .averageWatts)
+        self.maxWatts = try container.decodeIfPresent(Int.self, forKey: .maxWatts)
+        self.weightedAverageWatts = try container.decodeIfPresent(Int.self, forKey: .weightedAverageWatts)
+        self.kilojoules = try container.decodeIfPresent(Double.self, forKey: .kilojoules)
+        self.hasHeartrate = try container.decode(Bool.self, forKey: .hasHeartrate)
+        self.averageHeartrate = try container.decode(Double.self, forKey: .averageHeartrate)
+        self.maxHeartrate = try container.decode(Int.self, forKey: .maxHeartrate)
+        self.elevHigh = try container.decodeIfPresent(Int.self, forKey: .elevHigh)
+        self.elevLow = try container.decodeIfPresent(Int.self, forKey: .elevLow)
+        self.uploadID = try container.decode(Int.self, forKey: .uploadID)
+        self.uploadIDStr = try container.decode(String.self, forKey: .uploadIDStr)
+        self.externalID = try container.decode(String.self, forKey: .externalID)
+        self.prCount = try container.decode(Int.self, forKey: .prCount)
     }
 }
 

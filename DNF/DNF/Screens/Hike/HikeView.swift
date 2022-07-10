@@ -30,8 +30,8 @@ struct HikeView: View {
                                     Text(hike.name)
                                     Text("Distance: \(hike.distanceUI)")
                                     Text("Elevation Gain: \(hike.elevationGain)")
-                                    Text("Elevation Low: \(hike.elevLow)")
-                                    Text("Elevation High: \(hike.elevHigh)")
+                                    Text("Elevation Low: \(hike.elevLow ?? 0)")
+                                    Text("Elevation High: \(hike.elevHigh ?? 0)")
                                 }
                             }
                     }
