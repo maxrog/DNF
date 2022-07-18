@@ -111,6 +111,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF3D62C728859A0200754CE2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AF8467462852AFC4009FAD23 /* Screens */,
+				AF8467402852A81D009FAD23 /* DNF Views */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AF3D62C828859A2E00754CE2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AF8626B02853E2330079D911 /* Strava */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AF3D62C928859A3E00754CE2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AF846752285362BB009FAD23 /* Authentication */,
+				AF9789B928520BFC003BD82F /* Network */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		AF4D755C28574F50001A27EE /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,11 +193,9 @@
 			isa = PBXGroup;
 			children = (
 				AF717BD72851759F0011D0EE /* DNFApp.swift */,
-				AF8467462852AFC4009FAD23 /* Screens */,
-				AF8626AF2853E21E0079D911 /* Data Models */,
-				AF8467402852A81D009FAD23 /* DNF Views */,
-				AF9789B928520BFC003BD82F /* Network */,
-				AF846752285362BB009FAD23 /* Authentication */,
+				AF3D62C728859A0200754CE2 /* Views */,
+				AF3D62C828859A2E00754CE2 /* Models */,
+				AF3D62C928859A3E00754CE2 /* Services */,
 				AF84673D28529C23009FAD23 /* Utilities */,
 				AF717BE528517A8E0011D0EE /* Resources */,
 				AF717BDD2851759F0011D0EE /* Preview Content */,
@@ -271,14 +295,6 @@
 				AF458472285DFE57007C7834 /* ViewExtensions.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		AF8626AF2853E21E0079D911 /* Data Models */ = {
-			isa = PBXGroup;
-			children = (
-				AF8626B02853E2330079D911 /* Strava */,
-			);
-			path = "Data Models";
 			sourceTree = "<group>";
 		};
 		AF8626B02853E2330079D911 /* Strava */ = {
